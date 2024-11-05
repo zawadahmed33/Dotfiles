@@ -72,7 +72,7 @@ for vt in range(1, 8):
 
 ### GROUPS ###
 
-groups = [Group(f"{i+1}", label="") for i in range(8)]  # Naming of the groups
+groups = [Group(f"{i+1}", label="") for i in range(8)]  # Naming of the groups
 for i in groups:
     keys.extend(
         [
@@ -96,31 +96,33 @@ for i in groups:
 ### COLORS ###
 
 colors = [
-    "#1d1f21",  # background
-    "#c5c8c6",  # foreground
-    "#373b41",  # black
-    "#cc6666",  # red
-    "#b5bd68",  # green
-    "#f0c674",  # yellow
-    "#81a2be",  # blue
-    "#b294bb",  # magenta
-    "#8abeb7",  # cyan
-    "#c5c8c6",  # white
+    "#151718",  # dull_black, 0
+    "#1d1f21",  # black, 1
+    "#373b41",  # bright_black, 2
+    "#707880",  # dull_white, 3
+    "#c5c8c6",  # white, 4
+    "#eaeaea",  # bright_white, 5
+    "#cc6666",  # red, 6
+    "#b5bd68",  # green, 7
+    "#f0c674",  # yellow, 8
+    "#81a2be",  # blue, 9
+    "#b294bb",  # magenta, 10
+    "#8abeb7",  # cyan, 11
 ]
 
 ### LAYOUTS ###
 
-layout_theme = {"margin": 4, "border_focus": colors[4], "border_normal": colors[2]}
+layout_theme = {"margin": 4, "border_focus": colors[7], "border_normal": colors[2]}
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
 ]
 widget_defaults = dict(
-    font="Monaspace Neon Medium, Font Awesome 6 Free",
+    font="Monaspace Neon SemiBold, Font Awesome 6 Free",
     fontsize=14,
-    padding=8,
-    background=colors[0],
-    foreground=colors[1],
+    padding=12,
+    background=colors[1],
+    foreground=colors[4],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -133,31 +135,31 @@ screens = [
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
-                    active=colors[6],
-                    inactive=colors[1],
-                    this_current_screen_border=colors[4],
+                    active = colors[9],
+                    inactive = colors[4],
+                    this_current_screen_border = colors[7]
                 ),
-                widget.Systray(),
+                widget.Systray(icon_size = 16),
                 widget.Spacer(),
-                widget.CurrentLayout(fmt=" {}", foreground=colors[7]),
+                widget.CurrentLayout(fmt=" {}", foreground=colors[10]),
                 widget.CPU(
                     update_interval=5,
                     format=" CPU: {load_percent}",
-                    foreground=colors[8],
+                    foreground=colors[11],
                 ),
                 widget.Memory(
                     update_interval=5,
                     format=" Memory: {MemUsed:.2f} GiB",
                     measure_mem="G",
-                    foreground=colors[7],
+                    foreground=colors[10],
                 ),
                 widget.Volume(
                     unmute_format=" Volume: {volume}",
                     mute_format=" Volume: 0",
-                    foreground=colors[8],
+                    foreground=colors[11],
                 ),
-                widget.Wlan(format=" Network: {essid}", foreground=colors[7]),
-                widget.Clock(format=" %a, %d %b, %H:%M", foreground=colors[8]),
+                widget.Wlan(format=" Network: {essid}", foreground=colors[10]),
+                widget.Clock(format=" %a, %d %b, %H:%M", foreground=colors[11]),
             ],
             36,
             margin=[4, 4, 0, 4],
@@ -165,7 +167,7 @@ screens = [
     ),
 ]
 
-### FLOATING LAYOUT ###
+### DEFAULT STUFF ###
 
 # Drag floating layouts.
 mouse = [
@@ -215,13 +217,11 @@ wl_xcursor_size = 24
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
 # this string if your java app doesn't work correctly. We may as well just lie
 # and say that we're a working one by default.
-#
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "Qtile"
 
 ### STARTUP HOOK ###
-
 
 @hook.subscribe.startup_once
 def autostart():
