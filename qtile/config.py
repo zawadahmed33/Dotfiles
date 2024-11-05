@@ -56,6 +56,18 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch run launcher"),
+    Key([mod], "F1", lazy.spawn("chromium"), desc="Launch browser"),
+    Key([mod], "F2", lazy.spawn("pcmanfm"), desc="Launch file manager"),
+    Key([mod], "F3", lazy.spawn("mousepad"), desc="Launch text editor"),
+    Key([mod], "F4", lazy.spawn("kitty -e htop"), desc="Launch sytem monitor"),
+    Key([mod], "F5", lazy.spawn("gthumb"), desc="Launch image viewer"),
+    Key([mod], "F6", lazy.spawn("vlc"), desc="Launch video player"),
+    Key([mod], "F7", lazy.spawn("spotify-launcher"), desc="Launch music player"),
+    Key([mod], "F8", lazy.spawn("libreoffice"), desc="Launch office suite"),
+    Key([mod], "F9", lazy.spawn("flameshot"), desc="Launch screenshot tool"),
+    Key([mod], "F10", lazy.spawn("pavucontrol"), desc="Launch volume control"),
+    Key([mod], "F11", lazy.spawn("nm-connection-editor"), desc="Launch network manager"),
+    Key([mod], "F12", lazy.spawn("i3lock"), desc="Lock screen"),
 ]
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
@@ -120,7 +132,7 @@ layouts = [
 widget_defaults = dict(
     font="Monaspace Neon SemiBold, Font Awesome 6 Free",
     fontsize=14,
-    padding=12,
+    padding=8,
     background=colors[1],
     foreground=colors[4],
 )
@@ -139,7 +151,7 @@ screens = [
                     inactive = colors[4],
                     this_current_screen_border = colors[7]
                 ),
-                widget.Systray(icon_size = 16),
+                widget.Systray(icon_size = 20),
                 widget.Spacer(),
                 widget.CurrentLayout(fmt=" {}", foreground=colors[10]),
                 widget.CPU(
@@ -162,7 +174,7 @@ screens = [
                 widget.Clock(format=" %a, %d %b, %H:%M", foreground=colors[11]),
             ],
             36,
-            margin=[4, 4, 0, 4],
+            # margin=[4, 4, 0, 4],
         ),
     ),
 ]
