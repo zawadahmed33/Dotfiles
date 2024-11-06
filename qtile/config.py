@@ -1,5 +1,6 @@
 ### IMPORT STATEMENTS ###
 
+
 import os
 import subprocess
 from libqtile import hook
@@ -8,12 +9,16 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+
 ### VARIABLES ###
+
 
 mod = "mod4"
 terminal = "kitty"
 
+
 ### KEYBINDS ###
+
 
 keys = [
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -21,18 +26,8 @@ keys = [
     Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    Key(
-        [mod, "shift"],
-        "Left",
-        lazy.layout.shuffle_left(),
-        desc="Move window to the left",
-    ),
-    Key(
-        [mod, "shift"],
-        "Right",
-        lazy.layout.shuffle_right(),
-        desc="Move window to the right",
-    ),
+    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod, "control"], "Left", lazy.layout.shrink(), desc="Shrink window"),
@@ -40,18 +35,8 @@ keys = [
     Key([mod], "n", lazy.layout.reset(), desc="Reset all window sizes"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
-    Key(
-        [mod],
-        "t",
-        lazy.window.toggle_floating(),
-        desc="Toggle floating on the focused window",
-    ),
+    Key([mod], "f", lazy.window.toggle_fullscreen(),desc="Toggle fullscreen on the focused window"),
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
@@ -69,9 +54,8 @@ keys = [
     Key([mod], "F11", lazy.spawn("nm-connection-editor"), desc="Launch network manager"),
     Key([mod], "F12", lazy.spawn("i3lock"), desc="Lock screen"),
 ]
+
 # Add key bindings to switch VTs in Wayland.
-# We can't check qtile.core.name in default config as it is loaded before qtile is started
-# We therefore defer the check until the key binding is run by using .when(func=...)
 for vt in range(1, 8):
     keys.append(
         Key(
@@ -82,9 +66,14 @@ for vt in range(1, 8):
         )
     )
 
+
 ### GROUPS ###
 
-groups = [Group(f"{i+1}", label="") for i in range(8)]  # Naming of the groups
+
+# Naming of the groups
+groups = [Group(f"{i+1}", label="") for i in range(8)] 
+
+# Switching between groups
 for i in groups:
     keys.extend(
         [
@@ -105,7 +94,9 @@ for i in groups:
         ]
     )
 
+
 ### COLORS ###
+
 
 colors = [
     "#151718",  # dull_black, 0
@@ -122,24 +113,41 @@ colors = [
     "#8abeb7",  # cyan, 11
 ]
 
+
 ### LAYOUTS ###
 
-layout_theme = {"margin": 4, "border_focus": colors[7], "border_normal": colors[2]}
+
+# Theme for layouts
+layout_theme = {
+        "margin": 4, 
+        "border_focus": colors[7], 
+        "border_normal": colors[2]
+}
+
+# Added layouts
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
+    layout.Floating(**layout_theme),
 ]
+
+# Theme for widgets
 widget_defaults = dict(
     font="Monaspace Neon SemiBold, Font Awesome 6 Free",
     fontsize=14,
-    padding=8,
+    padding=12,
     background=colors[1],
     foreground=colors[4],
 )
+
+# Theme for extensions
 extension_defaults = widget_defaults.copy()
+
 
 ### SCREENS ###
 
+
+# Screen objects
 screens = [
     Screen(
         top=bar.Bar(
@@ -151,9 +159,13 @@ screens = [
                     inactive = colors[4],
                     this_current_screen_border = colors[7]
                 ),
-                widget.Systray(icon_size = 20),
+                widget.Systray(
+                    icon_size = 20
+                ),
                 widget.Spacer(),
-                widget.CurrentLayout(fmt=" {}", foreground=colors[10]),
+                widget.CurrentLayout(
+                    fmt=" {}", foreground=colors[10]
+                ),
                 widget.CPU(
                     update_interval=5,
                     format=" CPU: {load_percent}",
@@ -170,16 +182,22 @@ screens = [
                     mute_format=" Volume: 0",
                     foreground=colors[11],
                 ),
-                widget.Wlan(format=" Network: {essid}", foreground=colors[10]),
-                widget.Clock(format=" %a, %d %b, %H:%M", foreground=colors[11]),
+                widget.Wlan(
+                    format=" Network: {essid}", foreground=colors[10]
+                ),
+                widget.Clock(
+                    format=" %a, %d %b, %H:%M", foreground=colors[11]
+                ),
             ],
             36,
-            # margin=[4, 4, 0, 4],
+            margin=[4, 4, 0, 4],
         ),
     ),
 ]
 
+
 ### DEFAULT STUFF ###
+
 
 # Drag floating layouts.
 mouse = [
@@ -216,21 +234,18 @@ floating_layout = layout.Floating(
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
+
 # If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
+
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
+
 # xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
 wl_xcursor_size = 24
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+
+# Name of the window manager
 wmname = "Qtile"
 
 ### STARTUP HOOK ###
