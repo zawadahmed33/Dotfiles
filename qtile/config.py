@@ -1,6 +1,5 @@
 ### IMPORT STATEMENTS ###
 
-
 import os
 import subprocess
 from libqtile import hook
@@ -9,16 +8,12 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-
 ### VARIABLES ###
-
 
 mod = "mod4"
 terminal = "kitty"
 
-
 ### KEYBINDS ###
-
 
 keys = [
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -55,7 +50,6 @@ keys = [
     Key([mod], "F12", lazy.spawn("i3lock"), desc="Lock screen"),
 ]
 
-# Add key bindings to switch VTs in Wayland.
 for vt in range(1, 8):
     keys.append(
         Key(
@@ -69,22 +63,17 @@ for vt in range(1, 8):
 
 ### GROUPS ###
 
+groups = [Group(f"{i+1}", label="") for i in range(8)] 
 
-# Naming of the groups
-groups = [Group(f"{i+1}", label="") for i in range(8)] 
-
-# Switching between groups
 for i in groups:
     keys.extend(
         [
-            # mod + group number = switch to group
             Key(
                 [mod],
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc=f"Switch to group {i.name}",
             ),
-            # mod + shift + group number = switch to & move focused window to group
             Key(
                 [mod, "shift"],
                 i.name,
@@ -92,114 +81,101 @@ for i in groups:
                 desc=f"Switch to & move focused window to group {i.name}",
             ),
         ]
-    )
+)
 
 
 ### COLORS ###
 
-
 colors = [
-    "#151718",  # dull_black, 0
-    "#1d1f21",  # black, 1
-    "#373b41",  # bright_black, 2
-    "#707880",  # dull_white, 3
-    "#c5c8c6",  # white, 4
-    "#eaeaea",  # bright_white, 5
-    "#cc6666",  # red, 6
-    "#b5bd68",  # green, 7
-    "#f0c674",  # yellow, 8
-    "#81a2be",  # blue, 9
-    "#b294bb",  # magenta, 10
-    "#8abeb7",  # cyan, 11
+    "#181818",  # background, 0
+    "#d8d8d8",  # foreground, 1
+    "#585858",  # comment, 2
+    "#ab4642",  # red, 3
+    "#a1b56c",  # green, 4
+    "#f7ca88",  # yellow, 5
+    "#7cafc2",  # blue, 6
+    "#ba8fa8",  # magenta, 7
+    "#86c1b9",  # cyan, 8
 ]
-
 
 ### LAYOUTS ###
 
-
-# Theme for layouts
 layout_theme = {
-        "margin": 4, 
-        "border_focus": colors[7], 
-        "border_normal": colors[2]
+    "margin": 8, 
+    "border_focus": colors[4], 
+    "border_normal": colors[2]
 }
 
-# Added layouts
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
     layout.Floating(**layout_theme),
 ]
 
-# Theme for widgets
+### SCREENS ###
+
 widget_defaults = dict(
     font="Monaspace Neon SemiBold, Font Awesome 6 Free",
     fontsize=14,
-    padding=12,
-    background=colors[1],
-    foreground=colors[4],
+    padding=8,
+    background=colors[0],
+    foreground=colors[1],
 )
 
-# Theme for extensions
 extension_defaults = widget_defaults.copy()
 
-
-### SCREENS ###
-
-
-# Screen objects
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.GroupBox(
                     highlight_method="text",
+                    active=colors[1],
+                    inactive=colors[2],
+                    this_current_screen_border=colors[4],
                     urgent_alert_method="text",
-                    active = colors[9],
-                    inactive = colors[4],
-                    this_current_screen_border = colors[7]
+                    urgent_text=colors[3]
                 ),
                 widget.Systray(
                     icon_size = 20
                 ),
                 widget.Spacer(),
                 widget.CurrentLayout(
-                    fmt=" {}", foreground=colors[10]
+                    fmt=" {}", 
+                    foreground=colors[7]
                 ),
                 widget.CPU(
                     update_interval=5,
                     format=" CPU: {load_percent}",
-                    foreground=colors[11],
+                    foreground=colors[8]
                 ),
                 widget.Memory(
                     update_interval=5,
                     format=" Memory: {MemUsed:.2f} GiB",
                     measure_mem="G",
-                    foreground=colors[10],
+                    foreground=colors[7]
                 ),
                 widget.Volume(
                     unmute_format=" Volume: {volume}",
                     mute_format=" Volume: 0",
-                    foreground=colors[11],
+                    foreground=colors[8]
                 ),
                 widget.Wlan(
-                    format=" Network: {essid}", foreground=colors[10]
+                    format=" Network: {essid}", 
+                    foreground=colors[7]
                 ),
                 widget.Clock(
-                    format=" %a, %d %b, %H:%M", foreground=colors[11]
+                    format=" %a, %d %b, %H:%M", 
+                    foreground=colors[8]
                 ),
             ],
             36,
-            margin=[4, 4, 0, 4],
         ),
     ),
 ]
 
-
 ### DEFAULT STUFF ###
 
-
-# Drag floating layouts.
 mouse = [
     Drag(
         [mod],
@@ -212,40 +188,37 @@ mouse = [
     ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
+
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = []
 follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
+
 floating_layout = layout.Floating(
     float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="confirmreset"),
+        Match(wm_class="makebranch"),
+        Match(wm_class="maketag"),
+        Match(wm_class="ssh-askpass"),
+        Match(title="branchdialog"),
+        Match(title="pinentry"),
     ],
-    border_width=0,  # remove border from flaoting windows
+    border_width=0,
 )
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
 auto_minimize = True
 
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
 
-# xcursor theme (string or None) and size (integer) for Wayland backend
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-# Name of the window manager
 wmname = "Qtile"
 
 ### STARTUP HOOK ###

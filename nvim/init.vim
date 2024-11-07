@@ -2,8 +2,8 @@ set number
 
 call plug#begin()
 
-Plug 'HoNamDuong/hybrid.nvim'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
-colorscheme hybrid
+colorscheme base16-default-dark

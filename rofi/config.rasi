@@ -1,10 +1,10 @@
 * {
     font: "Monaspace Neon Medium 12";
-    foreground: #c5c8c6;
-    background-color: #1d1f21;
-    active-background: #b5bd68;
-    urgent-background: #cc6666;
-    urgent-foreground: #1d1f21;
+    foreground: #d8d8d8;
+    background-color: #181818;
+    active-background: #a1b56c;
+    urgent-background: #ab4642;
+    urgent-foreground: @background-color;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;
@@ -13,7 +13,7 @@
 }
 
 #window {
-    width: 720px;
+    width: 640px;
     padding:          16;
     background-color: @background-color;
     border:           2;
@@ -95,9 +95,9 @@
     text-color:       @foreground;
 }
 #inputbar {
-    spacing:    16px;
+    spacing:    8px;
     text-color: @foreground;
-    padding:    16px ;
+    padding:    16px 8px 16px 8px;
 }
 #case-indicator {
     spacing:    0;
