@@ -1,4 +1,6 @@
+#########################
 ### IMPORT STATEMENTS ###
+#########################
 
 import os
 import subprocess
@@ -8,12 +10,16 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+#################
 ### VARIABLES ###
+#################
 
 mod = "mod4"
 terminal = "kitty"
 
-### KEYBINDS ###
+####################
+### KEYBINDINGS  ###
+####################
 
 keys = [
     Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -61,9 +67,11 @@ for vt in range(1, 8):
     )
 
 
+##############
 ### GROUPS ###
+##############
 
-groups = [Group(f"{i+1}", label="") for i in range(8)] 
+groups = [Group(f"{i+1}", label="") for i in range(8)] 
 
 for i in groups:
     keys.extend(
@@ -84,24 +92,28 @@ for i in groups:
 )
 
 
+##############
 ### COLORS ###
+##############
 
 colors = [
-    "#181818",  # background, 0
-    "#d8d8d8",  # foreground, 1
-    "#585858",  # comment, 2
-    "#ab4642",  # red, 3
-    "#a1b56c",  # green, 4
-    "#f7ca88",  # yellow, 5
-    "#7cafc2",  # blue, 6
-    "#ba8fa8",  # magenta, 7
-    "#86c1b9",  # cyan, 8
+    "#1c1917",  # background, 0
+    "#b4bdc3",  # foreground, 1
+    "#403833",  # comment, 2
+    "#de6e7c",  # red, 3
+    "#819b69",  # green, 4
+    "#b88e64",  # yellow, 5
+    "#6099c0",  # blue, 6
+    "#b279a7",  # magenta, 7
+    "#66a5ad",  # cyan, 8
 ]
 
+###############
 ### LAYOUTS ###
+###############
 
 layout_theme = {
-    "margin": 8, 
+    "margin": 4, 
     "border_focus": colors[4], 
     "border_normal": colors[2]
 }
@@ -109,17 +121,19 @@ layout_theme = {
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
-    layout.Floating(**layout_theme),
 ]
 
-### SCREENS ###
+#########################
+### SCREENS & WIDGETS ###
+#########################
 
 widget_defaults = dict(
-    font="Monaspace Neon SemiBold, Font Awesome 6 Free",
+    font="Monaspace Neon Semibold, Font Awesome 6 Free",
     fontsize=14,
+    fontstyle="Bold",
     padding=8,
     background=colors[0],
-    foreground=colors[1],
+    foreground=colors[1]
 )
 
 extension_defaults = widget_defaults.copy()
@@ -130,51 +144,57 @@ screens = [
             [
                 widget.GroupBox(
                     highlight_method="text",
+                    urgent_alert_method="text",
                     active=colors[1],
                     inactive=colors[2],
                     this_current_screen_border=colors[4],
-                    urgent_alert_method="text",
                     urgent_text=colors[3]
                 ),
                 widget.Systray(
-                    icon_size = 20
+                    icon_size=20
                 ),
                 widget.Spacer(),
-                widget.CurrentLayout(
-                    fmt=" {}", 
-                    foreground=colors[7]
-                ),
-                widget.CPU(
-                    update_interval=5,
-                    format=" CPU: {load_percent}",
-                    foreground=colors[8]
+                widget.Load(
+                    update_interval=10,
+                    format=" {load:.2f}",
+                    foreground=colors[6]
                 ),
                 widget.Memory(
-                    update_interval=5,
-                    format=" Memory: {MemUsed:.2f} GiB",
+                    update_interval=10,
+                    format=" {NotAvailable:.2f} {mm}",
                     measure_mem="G",
                     foreground=colors[7]
                 ),
-                widget.Volume(
-                    unmute_format=" Volume: {volume}",
-                    mute_format=" Volume: 0",
-                    foreground=colors[8]
+                widget.Net(
+                    update_interval=10,
+                    format=" {down:.0f} {down_suffix}",
+                    foreground=colors[6]
                 ),
-                widget.Wlan(
-                    format=" Network: {essid}", 
+                widget.Volume(
+                    unmute_format=" {volume}",
+                    mute_format=" 0",
                     foreground=colors[7]
                 ),
+                widget.OpenWeather(
+                    app_key = "dc8130c54ec0a4b5a0b72a6932551631",
+                    cityid = "1185241",
+                    format = " {main_temp:.0f}°{units_temperature}, {weather}",
+                    foreground=colors[6]
+                ),
                 widget.Clock(
-                    format=" %a, %d %b, %H:%M", 
-                    foreground=colors[8]
+                    format=" %d-%m-%y, %H:%M", 
+                    foreground=colors[7]
                 ),
             ],
             36,
+            margin=[4, 4, 0, 4]
         ),
     ),
 ]
 
+#####################
 ### DEFAULT STUFF ###
+#####################
 
 mouse = [
     Drag(
@@ -219,9 +239,11 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-wmname = "Qtile"
+wmname = "LG3D"
 
+####################
 ### STARTUP HOOK ###
+####################
 
 @hook.subscribe.startup_once
 def autostart():
