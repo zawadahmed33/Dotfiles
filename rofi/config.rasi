@@ -9,11 +9,11 @@ entry {
 }
 
 * {
-    font: "Monaspace Neon Medium 12";
-    foreground: #b4bdc3;
-    background-color: #1c1917;
-    active-background: #819b69;
-    urgent-background: #de6e7c;
+    font: "JetBrains Mono SemiBold 12";
+    foreground: #abb2bf;
+    background-color: #282c34;
+    active-background: #98c379;
+    urgent-background: #e06c75;
     urgent-foreground: @background-color;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;

@@ -1,8 +1,6 @@
 [global]
     monitor = 0
     follow = none
-    width = 320
-    height = 320
     origin = top-right
     offset = 8x48
     scale = 0
@@ -19,15 +17,15 @@
     indicate_hidden = yes
     transparency = 0
     separator_height = 2
-    padding = 12
+    padding = 16
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 2
-    frame_color = <D-v>"#819b69"
+    frame_color = <D-v>"#98c379"
     gap_size = 0
     separator_color = frame
     sort = yes
-    font = Monaspace Neon 10
+    font = JetBrains Mono 10
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -65,22 +63,22 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#1c1917"
-    foreground = "#b4bdc3"
-    frame_color = "#6099c0"
+    background = "#282c34"
+    foreground = "#abb2bf"
+    frame_color = "#61afef"
     timeout = 10
 
 [urgency_normal]
-    background = "#1c1917"
-    foreground = "#b4bdc3"
-    frame_color = "#819b69"
+    background = "#282c34"
+    foreground = "#abb2bf"
+    frame_color = "#98c379"
     timeout = 10
     override_pause_level = 30
 
 [urgency_critical]
-    background = "#1c1917"
-    foreground = "#b4bdc3"
-    frame_color = "#de6e7c"
+    background = "#282c34"
+    foreground = "#abb2bf"
+    frame_color = "#e06c75"
     timeout = 0
     override_pause_level = 60
 

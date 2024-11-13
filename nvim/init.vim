@@ -2,8 +2,8 @@ set number
 
 call plug#begin()
 
-Plug 'chriskempson/base16-vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
-colorscheme base16-default-dark
+colorscheme onedark 

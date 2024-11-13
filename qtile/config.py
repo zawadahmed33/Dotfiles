@@ -71,7 +71,7 @@ for vt in range(1, 8):
 ### GROUPS ###
 ##############
 
-groups = [Group(f"{i+1}", label="") for i in range(8)] 
+groups = [Group(f"{i+1}", label="") for i in range(8)] 
 
 for i in groups:
     keys.extend(
@@ -97,15 +97,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#1c1917",  # background, 0
-    "#b4bdc3",  # foreground, 1
-    "#403833",  # comment, 2
-    "#de6e7c",  # red, 3
-    "#819b69",  # green, 4
-    "#b88e64",  # yellow, 5
-    "#6099c0",  # blue, 6
-    "#b279a7",  # magenta, 7
-    "#66a5ad",  # cyan, 8
+    "#282c34",  # background, 0
+    "#abb2bf",  # foreground, 1
+    "#5c6370",  # gray, 2
+    "#e06c75",  # red, 3
+    "#98c379",  # green, 4
+    "#e5c07b",  # yellow, 5
+    "#61afef",  # blue, 6
+    "#c678dd",  # magenta, 7
+    "#56b6c2",  # cyan, 8
 ]
 
 ###############
@@ -128,66 +128,142 @@ layouts = [
 #########################
 
 widget_defaults = dict(
-    font="Monaspace Neon Semibold, Font Awesome 6 Free",
     fontsize=14,
-    fontstyle="Bold",
-    padding=8,
+    padding=0,
     background=colors[0],
-    foreground=colors[1]
 )
 
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
+                widget.Spacer(
+                    length=16
+                ),
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
+                    font="Font Awesome 6 Free Solid",
+                    spacing=8,
                     active=colors[1],
                     inactive=colors[2],
                     this_current_screen_border=colors[4],
                     urgent_text=colors[3]
                 ),
+                widget.Spacer(
+                    length=16
+                ),
                 widget.Systray(
-                    icon_size=20
+                    icon_size=20,
+                    padding=8
                 ),
                 widget.Spacer(),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    foreground=colors[4]
+                ),
+                widget.Spacer(
+                    length=8
+                ),
                 widget.Load(
                     update_interval=10,
-                    format=" {load:.2f}",
-                    foreground=colors[6]
+                    format="{load:.2f}",
+                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    foreground=colors[4]
+                ),
+                widget.Spacer(
+                    length=8
+                ),
+                widget.DF(
+                    visible_on_warn=False,
+                    format="{uf} {m}",
+                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    foreground=colors[4]
+                ),
+                widget.Spacer(
+                    length=8
                 ),
                 widget.Memory(
                     update_interval=10,
-                    format=" {NotAvailable:.2f} {mm}",
+                    format="{NotAvailable:.2f} {mm}",
+                    font="JetBrains Mono Bold",
                     measure_mem="G",
-                    foreground=colors[7]
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    foreground=colors[4]
+                ),
+                widget.Spacer(
+                    length=8
                 ),
                 widget.Net(
                     update_interval=10,
-                    format=" {down:.0f} {down_suffix}",
-                    foreground=colors[6]
+                    format="{down:.0f} {down_suffix}",
+                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    foreground=colors[4]
+                ),
+                widget.Spacer(
+                    length=8
                 ),
                 widget.Volume(
-                    unmute_format=" {volume}",
-                    mute_format=" 0",
-                    foreground=colors[7]
+                    unmute_format="{volume}",
+                    mute_format="0",
+                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
                 ),
-                widget.OpenWeather(
-                    app_key = "dc8130c54ec0a4b5a0b72a6932551631",
-                    cityid = "1185241",
-                    format = " {main_temp:.0f}°{units_temperature}, {weather}",
-                    foreground=colors[6]
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 6 Free Solid",
+                    foreground=colors[4]
+                ),
+                widget.Spacer(
+                    length=8
                 ),
                 widget.Clock(
-                    format=" %d-%m-%y, %H:%M", 
-                    foreground=colors[7]
+                    format="%d-%m-%y, %H:%M", 
+                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
                 ),
+                widget.Spacer(
+                    length=16
+                )
             ],
-            36,
-            margin=[4, 4, 0, 4]
+            32,
         ),
     ),
 ]
