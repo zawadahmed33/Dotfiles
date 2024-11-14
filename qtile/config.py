@@ -147,6 +147,7 @@ screens = [
                     urgent_alert_method="text",
                     font="Font Awesome 6 Free Solid",
                     spacing=8,
+                    margin_x=0,
                     active=colors[1],
                     inactive=colors[2],
                     this_current_screen_border=colors[4],
