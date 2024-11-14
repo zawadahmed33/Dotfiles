@@ -11,23 +11,17 @@ entry {
 * {
     font: "JetBrains Mono SemiBold 12";
     foreground: #abb2bf;
-    background-color: #282c34;
-    active-background: #98c379;
-    urgent-background: #e06c75;
-    urgent-foreground: @background-color;
-    selected-background: @active-background;
-    selected-urgent-background: @urgent-background;
-    selected-active-background: @active-background;
-    separatorcolor: @active-background;
-    bordercolor: @active-background;
+    background: #282c34;
+    background-dim: #5c6370;
+    primary: #98c379;
+    urgent: #e06c75;
 }
 
 #window {
-    width: 480px;
-    height: 480px;
+    width: 	      480px;
     padding:          0;
     border:           0;
-    background-color: @background-color;
+    background-color: @background;
 }
 
 #mainbox {
@@ -40,85 +34,74 @@ entry {
 }
 
 #listview {
-    fixed-height: 0;
-    border:       0px;
-    border-color: @bordercolor;
-    spacing:      0;
+    lines:        8;
+    fixed-height: false;
     scrollbar:    false;
+    spacing:      0;
     padding:      0;
+    border:       0px;
 }
 
 #element {
-    border:  0;
     padding: 8px 16px 8px 16px;
+    border:  0;
 }
 
 #element.normal.normal {
-    background-color: @background-color;
+    background-color: @background;
     text-color:       @foreground;
 }
 
 #element.normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
+    background-color: @urgent;
+    text-color:       @background;
 }
 
 #element.normal.active {
-    background-color: @active-background;
+    background-color: @background;
     text-color:       @foreground;
 }
 
 #element.selected.normal {
-    background-color: @selected-background;
-    text-color:       @background-color;
+    background-color: @primary;
+    text-color:       @background;
 }
 
 #element.selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @foreground;
+    background-color: @urgent;
+    text-color:       @background;
 }
 
 #element.selected.active {
-    background-color: @selected-active-background;
+    background-color: @background;
     text-color:       @foreground;
 }
 
 #element.alternate.normal {
-    background-color: @background-color;
+    background-color: @background;
     text-color:       @foreground;
 }
 
 #element.alternate.urgent {
-    background-color: @urgent-background;
-    text-color:       @foreground;
+    background-color: @urgent;
+    text-color:       @background;
 }
 
 #element.alternate.active {
-    background-color: @active-background;
+    background-color: @background;
     text-color:       @foreground;
-}
-
-#scrollbar {
-    width:        2px ;
-    border:       0;
-    handle-width: 8px ;
-    padding:      0;
-}
-
-#sidebar {
-    border:       0;
-    border-color: @separatorcolor;
 }
 
 #button.selected {
-    background-color: @selected-background;
-    text-color:       @foreground;
+    background-color: @primary;
+    text-color:       @background;
 }
 
 #inputbar {
     spacing:    8px;
+    padding:    32px;
     text-color: @foreground;
-    padding:    16px;
+    background-color: @background;
 }
 
 #case-indicator {
@@ -131,7 +114,7 @@ entry {
 }
 
 #prompt {
-    text-color: @selected-background;
+    text-color: @primary;
 }
 
 #inputbar {
@@ -141,7 +124,7 @@ entry {
 #textbox-prompt-colon {
     expand:     false;
     str:        ">";
-    text-color: @selected-background;
+    text-color: @primary;
 }
 
 element-text, element-icon {
