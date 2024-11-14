@@ -23,24 +23,16 @@ entry {
 }
 
 #window {
-    width: 640px;
+    width: 480px;
     height: 480px;
-    padding:          16px;
+    padding:          0;
+    border:           0;
     background-color: @background-color;
-    border:           2px;
-    border-radius:    0;
-    border-color:     @bordercolor;
 }
 
 #mainbox {
     border:  0;
     padding: 0;
-}
-
-#message {
-    border:       0px;
-    border-color: @separatorcolor;
-    padding:      2px;
 }
 
 #textbox {
@@ -51,14 +43,14 @@ entry {
     fixed-height: 0;
     border:       0px;
     border-color: @bordercolor;
-    spacing:      2px;
+    spacing:      0;
     scrollbar:    false;
-    padding:      2px;
+    padding:      0;
 }
 
 #element {
     border:  0;
-    padding: 8px;
+    padding: 8px 16px 8px 16px;
 }
 
 #element.normal.normal {
@@ -126,7 +118,7 @@ entry {
 #inputbar {
     spacing:    8px;
     text-color: @foreground;
-    padding:    16px 8px 16px 8px;
+    padding:    16px;
 }
 
 #case-indicator {
@@ -135,13 +127,11 @@ entry {
 }
 
 #entry {
-    spacing:    0;
     text-color: @foreground;
 }
 
 #prompt {
-    spacing:    0;
-    text-color: @foreground;
+    text-color: @selected-background;
 }
 
 #inputbar {
@@ -151,8 +141,7 @@ entry {
 #textbox-prompt-colon {
     expand:     false;
     str:        ">";
-    margin:     0px 2px 0px 2px ;
-    text-color: @foreground;
+    text-color: @selected-background;
 }
 
 element-text, element-icon {
