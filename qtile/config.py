@@ -128,7 +128,7 @@ layouts = [
 #########################
 
 widget_defaults = dict(
-    fontsize=14,
+    fontsize=15,
     padding=0,
     background=colors[0],
 )
@@ -164,7 +164,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 6 Free Solid",
-                    foreground=colors[4]
+                    foreground=colors[7]
                 ),
                 widget.Spacer(
                     length=8
@@ -181,7 +181,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 6 Free Solid",
-                    foreground=colors[4]
+                    foreground=colors[8]
                 ),
                 widget.Spacer(
                     length=8
@@ -198,7 +198,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 6 Free Solid",
-                    foreground=colors[4]
+                    foreground=colors[7]
                 ),
                 widget.Spacer(
                     length=8
@@ -216,7 +216,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 6 Free Solid",
-                    foreground=colors[4]
+                    foreground=colors[8]
                 ),
                 widget.Spacer(
                     length=8
@@ -233,7 +233,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 6 Free Solid",
-                    foreground=colors[4]
+                    foreground=colors[7]
                 ),
                 widget.Spacer(
                     length=8
@@ -250,7 +250,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 6 Free Solid",
-                    foreground=colors[4]
+                    foreground=colors[8]
                 ),
                 widget.Spacer(
                     length=8

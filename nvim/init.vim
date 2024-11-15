@@ -6,4 +6,4 @@ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
-colorscheme onedark 
+colorscheme onedark
