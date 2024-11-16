@@ -71,7 +71,7 @@ for vt in range(1, 8):
 ### GROUPS ###
 ##############
 
-groups = [Group(f"{i+1}", label="") for i in range(8)] 
+groups = [Group(f"{i+1}", label="") for i in range(8)] 
 
 for i in groups:
     keys.extend(
@@ -128,7 +128,8 @@ layouts = [
 #########################
 
 widget_defaults = dict(
-    fontsize=15,
+    font="JetBrains Mono SemiBold",
+    fontsize=14,
     padding=0,
     background=colors[0],
 )
@@ -137,51 +138,41 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    mouse_callbacks={"Button1": lazy.spawn("rofi -show drun")},
+                    foreground=colors[4]
+                ),
                 widget.Spacer(
                     length=16
                 ),
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
-                    font="Font Awesome 6 Free Solid",
                     spacing=8,
                     margin_x=0,
+                    margin_y=4,
                     active=colors[1],
                     inactive=colors[2],
-                    this_current_screen_border=colors[4],
+                    this_current_screen_border=colors[6],
                     urgent_text=colors[3]
                 ),
                 widget.Spacer(
-                    length=16
+                    length=8
                 ),
                 widget.Systray(
                     icon_size=20,
                     padding=8
                 ),
-                widget.Spacer(),
-                widget.TextBox(
-                    text="",
-                    font="Font Awesome 6 Free Solid",
-                    foreground=colors[7]
-                ),
-                widget.Spacer(
-                    length=8
-                ),
-                widget.Load(
-                    update_interval=10,
-                    format="{load:.2f}",
-                    font="JetBrains Mono Bold",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
+                widget.Spacer(), 
                 widget.TextBox(
                     text="",
-                    font="Font Awesome 6 Free Solid",
-                    foreground=colors[8]
+                    foreground=colors[7]
                 ),
                 widget.Spacer(
                     length=8
@@ -189,7 +180,21 @@ screens = [
                 widget.DF(
                     visible_on_warn=False,
                     format="{uf} {m}",
-                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=colors[8]
+                ),
+                widget.Spacer(
+                    length=8
+                ),
+                widget.Load(
+                    update_interval=15,
+                    format="{load:.2f}",
                     foreground=colors[1]
                 ),
                 widget.Spacer(
@@ -197,16 +202,14 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    font="Font Awesome 6 Free Solid",
                     foreground=colors[7]
                 ),
                 widget.Spacer(
                     length=8
                 ),
                 widget.Memory(
-                    update_interval=10,
+                    update_interval=15,
                     format="{NotAvailable:.2f} {mm}",
-                    font="JetBrains Mono Bold",
                     measure_mem="G",
                     foreground=colors[1]
                 ),
@@ -215,16 +218,29 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    font="Font Awesome 6 Free Solid",
                     foreground=colors[8]
                 ),
                 widget.Spacer(
                     length=8
                 ),
                 widget.Net(
-                    update_interval=10,
+                    update_interval=15,
                     format="{down:.0f} {down_suffix}",
-                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=colors[7]
+                ),
+                widget.Spacer(
+                    length=8
+                ),
+                widget.Net(
+                    update_interval=15,
+                    format="{up:.0f} {up_suffix}",
                     foreground=colors[1]
                 ),
                 widget.Spacer(
@@ -232,8 +248,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    font="Font Awesome 6 Free Solid",
-                    foreground=colors[7]
+                    foreground=colors[8]
                 ),
                 widget.Spacer(
                     length=8
@@ -241,7 +256,20 @@ screens = [
                 widget.Volume(
                     unmute_format="{volume}",
                     mute_format="0",
-                    font="JetBrains Mono Bold",
+                    foreground=colors[1]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
+                widget.TextBox(
+                    text="",
+                    foreground=colors[7]
+                ),
+                widget.Spacer(
+                    length=8
+                ),
+                widget.Wttr(
+                    format="%t",
                     foreground=colors[1]
                 ),
                 widget.Spacer(
@@ -249,22 +277,29 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    font="Font Awesome 6 Free Solid",
                     foreground=colors[8]
                 ),
                 widget.Spacer(
                     length=8
                 ),
                 widget.Clock(
-                    format="%d-%m-%y, %H:%M", 
-                    font="JetBrains Mono Bold",
+                    format="%H:%M", 
                     foreground=colors[1]
                 ),
                 widget.Spacer(
                     length=16
-                )
+                ),
+                widget.TextBox(
+                    text="",
+                    mouse_callbacks={"Button3": lazy.shutdown()},
+                    foreground=colors[3]
+                ),
+                widget.Spacer(
+                    length=16
+                ),
             ],
-            32,
+            36,
+            margin=[4,4,0,4]
         ),
     ),
 ]
