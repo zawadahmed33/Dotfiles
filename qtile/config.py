@@ -38,6 +38,7 @@ keys = [
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "f", lazy.window.toggle_fullscreen(),desc="Toggle fullscreen on the focused window"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key([mod], "c", lazy.window.center(), desc="Center Floating Window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
@@ -163,13 +164,23 @@ screens = [
                     urgent_text=colors[3]
                 ),
                 widget.Spacer(
-                    length=8
+                    length=16
                 ),
+                widget.Mpris2(
+                    foreground=colors[1],
+                    name="spotify",
+                    playing_text=" {track}",
+                    paused_text=" {track}",
+                    objname="org.mpris.MediaPlayer2.spotify",
+                ),
+                widget.Spacer(), 
                 widget.Systray(
                     icon_size=20,
                     padding=8
                 ),
-                widget.Spacer(), 
+                widget.Spacer(
+                    length=16
+                ),
                 widget.TextBox(
                     text="",
                     foreground=colors[7]
