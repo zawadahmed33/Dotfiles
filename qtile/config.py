@@ -72,7 +72,7 @@ for vt in range(1, 8):
 ### GROUPS ###
 ##############
 
-groups = [Group(f"{i+1}", label="") for i in range(8)] 
+groups = [Group(f"{i+1}", label="") for i in range(9)] 
 
 for i in groups:
     keys.extend(
@@ -98,15 +98,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#282c34",  # background, 0
-    "#abb2bf",  # foreground, 1
-    "#5c6370",  # gray, 2
-    "#e06c75",  # red, 3
-    "#98c379",  # green, 4
-    "#e5c07b",  # yellow, 5
-    "#61afef",  # blue, 6
-    "#c678dd",  # magenta, 7
-    "#56b6c2",  # cyan, 8
+    "#282c34",  # Background, 0
+    "#abb2bf",  # Foreground, 1
+    "#5c6370",  # Comment Grey, 2
+    "#e06c75",  # Light Red, 3
+    "#98c379",  # Green, 4
+    "#e5c07b",  # Light Yellow, 5
+    "#61afef",  # Blue, 6
+    "#c678dd",  # Magenta, 7
+    "#56b6c2",  # Cyan, 8
 ]
 
 ###############
@@ -115,7 +115,7 @@ colors = [
 
 layout_theme = {
     "margin": 4, 
-    "border_focus": colors[4], 
+    "border_focus": colors[6], 
     "border_normal": colors[2]
 }
 
@@ -147,7 +147,7 @@ screens = [
                 widget.TextBox(
                     text="",
                     mouse_callbacks={"Button1": lazy.spawn("rofi -show drun")},
-                    foreground=colors[4]
+                    foreground=colors[6]
                 ),
                 widget.Spacer(
                     length=16
@@ -160,18 +160,18 @@ screens = [
                     margin_y=4,
                     active=colors[1],
                     inactive=colors[2],
-                    this_current_screen_border=colors[6],
+                    this_current_screen_border=colors[4],
                     urgent_text=colors[3]
                 ),
                 widget.Spacer(
                     length=16
                 ),
                 widget.Mpris2(
-                    foreground=colors[1],
                     name="spotify",
+                    objname="org.mpris.MediaPlayer2.spotify",
                     playing_text=" {track}",
                     paused_text=" {track}",
-                    objname="org.mpris.MediaPlayer2.spotify",
+                    foreground=colors[1],
                 ),
                 widget.Spacer(), 
                 widget.Systray(

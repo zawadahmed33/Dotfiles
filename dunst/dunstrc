@@ -21,7 +21,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 2
-    frame_color = <D-v>"#98c379"
+    frame_color = <D-v>"#61afef"
     gap_size = 0
     separator_color = frame
     sort = yes
@@ -65,13 +65,13 @@
 [urgency_low]
     background = "#282c34"
     foreground = "#abb2bf"
-    frame_color = "#61afef"
+    frame_color = "#98c379"
     timeout = 10
 
 [urgency_normal]
     background = "#282c34"
     foreground = "#abb2bf"
-    frame_color = "#98c379"
+    frame_color = "#61afef"
     timeout = 10
     override_pause_level = 30
 

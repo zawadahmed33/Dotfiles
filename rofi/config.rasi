@@ -12,8 +12,7 @@ entry {
     font: "JetBrains Mono SemiBold 12";
     foreground: #abb2bf;
     background: #282c34;
-    background-dim: #5c6370;
-    primary: #98c379;
+    primary: #61afef;
     urgent: #e06c75;
 }
 
