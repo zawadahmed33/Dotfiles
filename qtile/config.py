@@ -303,7 +303,7 @@ screens = [
                 ),
                 widget.TextBox(
                     text="",
-                    mouse_callbacks={"Button3": lazy.shutdown()},
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/home/zawad/.config/rofi/scripts/powermenu.sh")},
                     foreground=colors[3]
                 ),
                 widget.Spacer(
