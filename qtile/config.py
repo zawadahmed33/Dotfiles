@@ -98,15 +98,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#282c34",  # Background, 0
-    "#abb2bf",  # Foreground, 1
-    "#5c6370",  # Comment Grey, 2
-    "#e06c75",  # Light Red, 3
-    "#98c379",  # Green, 4
-    "#e5c07b",  # Light Yellow, 5
-    "#61afef",  # Blue, 6
-    "#c678dd",  # Magenta, 7
-    "#56b6c2",  # Cyan, 8
+    "#191919",  # Background, 0
+    "#bbbbbb",  # Foreground, 1
+    "#3d3839",  # Bright Black, 2
+    "#f77890",  # Red, 3
+    "#819b69",  # Green, 4
+    "#b77e64",  # Yellow, 5
+    "#6099c0",  # Blue, 6
+    "#b279a7",  # Magenta, 7
+    "#66a5ad",  # Cyan, 8
 ]
 
 ###############
@@ -132,6 +132,7 @@ widget_defaults = dict(
     font="JetBrains Mono SemiBold",
     fontsize=14,
     padding=0,
+    margin=0,
     background=colors[0],
 )
 
@@ -280,7 +281,7 @@ screens = [
                     length=8
                 ),
                 widget.Wttr(
-                    format="%t",
+                    format="%t, %C",
                     foreground=colors[1]
                 ),
                 widget.Spacer(
@@ -294,7 +295,7 @@ screens = [
                     length=8
                 ),
                 widget.Clock(
-                    format="%H:%M", 
+                    format="%d-%m-%y, %H:%M", 
                     foreground=colors[1]
                 ),
                 widget.Spacer(
