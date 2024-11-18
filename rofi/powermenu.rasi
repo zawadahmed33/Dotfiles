@@ -12,7 +12,8 @@ inputbar {
 
 window {
     padding: 0;
-    border: 0;
+    border: 2px;
+	border-color: @primary;
     background-color: @background;
 }
 
