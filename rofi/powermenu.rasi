@@ -1,0 +1,71 @@
+* {
+    font: "Font Awesome 6 Free 64";
+    foreground: #bbbbbb;
+    background: #191919;
+    primary: #6099c0;
+    urgent: #de6e7c;
+}
+
+inputbar {
+	enabled: false;
+}
+
+window {
+    padding: 0;
+    border: 0;
+    background-color: @background;
+}
+
+listview {
+	lines: 2;
+	columns: 2;
+    margin: 32px;
+    border: 0px;
+}
+
+element {
+    enabled: true;
+    spacing: 0px;
+    margin: 0px;
+    padding: 32px;
+    border: 0px;
+    border-radius: 0px;
+    border-color: @primary;
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element-text {
+    vertical-align: 0.0;
+    horizontal-align: 0.5;
+}
+
+element.normal.normal {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.normal.urgent {
+    background-color: @urgent;
+    text-color: @background;
+}
+
+element.normal.active {
+    background-color: @background;
+    text-color: @foreground;
+}
+
+element.selected.normal {
+    background-color: @primary;
+    text-color: @background;
+}
+
+element.selected.urgent {
+    background-color: @urgent;
+    text-color: @background;
+}
+
+element.selected.active {
+    background-color: @background;
+    text-color: @foreground;
+}

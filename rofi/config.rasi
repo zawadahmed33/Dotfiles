@@ -1,6 +1,6 @@
 configuration {
-    show-icons:      false;
-    display-drun:    "drun";
+    show-icons: false;
+    display-drun: "drun";
     disable-history: false;
 }
 
@@ -17,9 +17,9 @@ entry {
 }
 
 #window {
-    width: 	      480px;
-    padding:          0;
-    border:           0;
+    width: 480px;
+    padding: 0;
+    border: 0;
     background-color: @background;
 }
 
@@ -33,78 +33,78 @@ entry {
 }
 
 #listview {
-    lines:        8;
+    lines: 8;
     fixed-height: false;
-    scrollbar:    false;
-    spacing:      0;
-    padding:      0;
-    border:       0px;
+    scrollbar: false;
+    spacing: 0;
+    padding: 0;
+    border: 0px;
 }
 
 #element {
     padding: 8px 16px 8px 16px;
-    border:  0;
+    border: 0;
 }
 
 #element.normal.normal {
     background-color: @background;
-    text-color:       @foreground;
+    text-color: @foreground;
 }
 
 #element.normal.urgent {
-    background-color: @urgent;
-    text-color:       @background;
+    background-color: @background;
+    text-color: @urgent;
 }
 
 #element.normal.active {
     background-color: @background;
-    text-color:       @foreground;
+    text-color: @primary;
 }
 
 #element.selected.normal {
     background-color: @primary;
-    text-color:       @background;
+    text-color: @background;
 }
 
 #element.selected.urgent {
     background-color: @urgent;
-    text-color:       @background;
+    text-color: @background;
 }
 
 #element.selected.active {
     background-color: @background;
-    text-color:       @foreground;
+    text-color: @foreground;
 }
 
 #element.alternate.normal {
     background-color: @background;
-    text-color:       @foreground;
+    text-color: @foreground;
 }
 
 #element.alternate.urgent {
-    background-color: @urgent;
-    text-color:       @background;
+    background-color: @background;
+    text-color: @urgent;
 }
 
 #element.alternate.active {
     background-color: @background;
-    text-color:       @foreground;
+    text-color: @foreground;
 }
 
 #button.selected {
     background-color: @primary;
-    text-color:       @background;
+    text-color: @background;
 }
 
 #inputbar {
-    spacing:    8px;
-    padding:    32px;
+    spacing: 8px;
+    padding: 32px;
     text-color: @foreground;
     background-color: @background;
 }
 
 #case-indicator {
-    spacing:    0;
+    spacing: 0;
     text-color: @foreground;
 }
 
@@ -117,16 +117,11 @@ entry {
 }
 
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 #textbox-prompt-colon {
-    expand:     false;
-    str:        ">";
+    expand: false;
+    str: ">";
     text-color: @primary;
-}
-
-element-text, element-icon {
-    background-color: inherit;
-    text-color: inherit;
 }
