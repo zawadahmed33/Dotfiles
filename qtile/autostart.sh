@@ -4,3 +4,4 @@ lxsession &
 dunst &
 picom &
 nitrogen --restore &
+conky &
