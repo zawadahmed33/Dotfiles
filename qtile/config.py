@@ -114,7 +114,7 @@ colors = [
 ###############
 
 layout_theme = {
-    "margin": 4, 
+    "margin": 8, 
     "border_focus": colors[6], 
     "border_normal": colors[2]
 }
@@ -131,7 +131,7 @@ layouts = [
 widget_defaults = dict(
     font="JetBrains Mono SemiBold",
     fontsize=14,
-    padding=0,
+    padding=8,
     margin=0,
     background=colors[0],
 )
@@ -140,32 +140,20 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    mouse_callbacks={"Button1": lazy.spawn("rofi -show drun")},
-                    foreground=colors[6]
-                ),
-                widget.Spacer(
-                    length=16
+                    length=8
                 ),
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
-                    spacing=8,
                     margin_x=0,
                     margin_y=4,
                     active=colors[1],
                     inactive=colors[2],
                     this_current_screen_border=colors[4],
                     urgent_text=colors[3]
-                ),
-                widget.Spacer(
-                    length=16
                 ),
                 widget.Mpris2(
                     name="spotify",
@@ -177,141 +165,56 @@ screens = [
                 widget.Spacer(), 
                 widget.Systray(
                     icon_size=20,
-                    padding=8
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[7]
-                ),
-                widget.Spacer(
-                    length=8
                 ),
                 widget.DF(
                     visible_on_warn=False,
-                    format="{uf} {m}",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[8]
-                ),
-                widget.Spacer(
-                    length=8
+                    format=" {uf} {m}",
+                    foreground=colors[7]
                 ),
                 widget.Load(
                     update_interval=15,
-                    format="{load:.2f}",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[7]
-                ),
-                widget.Spacer(
-                    length=8
+                    format=" {load:.2f}",
+                    foreground=colors[8]
                 ),
                 widget.Memory(
                     update_interval=15,
-                    format="{NotAvailable:.2f} {mm}",
+                    format=" {NotAvailable:.2f} {mm}",
                     measure_mem="G",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[8]
-                ),
-                widget.Spacer(
-                    length=8
-                ),
-                widget.Net(
-                    update_interval=15,
-                    format="{down:.0f} {down_suffix}",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
                     foreground=colors[7]
                 ),
-                widget.Spacer(
-                    length=8
+                widget.Net(
+                    update_interval=15,
+                    format=" {down:.0f} {down_suffix}",
+                    foreground=colors[8]
                 ),
                 widget.Net(
                     update_interval=15,
-                    format="{up:.0f} {up_suffix}",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[8]
-                ),
-                widget.Spacer(
-                    length=8
+                    format=" {up:.0f} {up_suffix}",
+                    foreground=colors[7]
                 ),
                 widget.Volume(
-                    unmute_format="{volume}",
-                    mute_format="0",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[7]
-                ),
-                widget.Spacer(
-                    length=8
-                ),
-                widget.Wttr(
-                    format="%t, %C",
-                    foreground=colors[1]
-                ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
+                    unmute_format=" {volume}",
+                    mute_format=" 0",
                     foreground=colors[8]
                 ),
-                widget.Spacer(
-                    length=8
+                widget.Wttr(
+                    format=" %t, %C",
+                    foreground=colors[7]
                 ),
                 widget.Clock(
-                    format="%d-%m-%y, %H:%M", 
-                    foreground=colors[1]
+                    format=" %d-%m-%y, %H:%M", 
+                    foreground=colors[8]
                 ),
-                widget.Spacer(
-                    length=16
-                ),
-                widget.TextBox(
-                    text="",
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn("/home/zawad/.config/rofi/scripts/powermenu.sh")},
+                widget.QuickExit(
+                    default_text="",
+                    countdown_format="{}",
                     foreground=colors[3]
                 ),
                 widget.Spacer(
-                    length=16
+                    length=8
                 ),
             ],
-            36,
-            margin=[4,4,0,4]
+            32,
         ),
     ),
 ]
