@@ -9,6 +9,8 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
 
 #################
 ### VARIABLES ###
@@ -98,15 +100,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#191919",  # Background, 0
-    "#bbbbbb",  # Foreground, 1
-    "#3d3839",  # Bright Black, 2
-    "#f77890",  # Red, 3
-    "#819b69",  # Green, 4
-    "#b77e64",  # Yellow, 5
-    "#6099c0",  # Blue, 6
-    "#b279a7",  # Magenta, 7
-    "#66a5ad",  # Cyan, 8
+    "#232136",  # Background, 0
+    "#e0def4",  # Foreground, 1
+    "#393552",  # Black, 2
+    "#eb6f92",  # Red, 3
+    "#a3be8c",  # Green, 4
+    "#f6c177",  # Yellow, 5
+    "#569fba",  # Blue, 6
+    "#c4a7e7",  # Magenta, 7
+    "#9ccfd8",  # Cyan, 8
 ]
 
 ###############
@@ -115,7 +117,7 @@ colors = [
 
 layout_theme = {
     "margin": 8, 
-    "border_focus": colors[6], 
+    "border_focus": colors[4], 
     "border_normal": colors[2]
 }
 
@@ -132,7 +134,6 @@ widget_defaults = dict(
     font="JetBrains Mono SemiBold",
     fontsize=14,
     padding=8,
-    margin=0,
     background=colors[0],
 )
 
@@ -153,7 +154,7 @@ screens = [
                     active=colors[1],
                     inactive=colors[2],
                     this_current_screen_border=colors[4],
-                    urgent_text=colors[3]
+                    urgent_text=colors[3],
                 ),
                 widget.Mpris2(
                     name="spotify",
@@ -203,7 +204,8 @@ screens = [
                 ),
                 widget.Clock(
                     format=" %d-%m-%y, %H:%M", 
-                    foreground=colors[8]
+                    foreground=colors[8],
+                    
                 ),
                 widget.QuickExit(
                     default_text="",

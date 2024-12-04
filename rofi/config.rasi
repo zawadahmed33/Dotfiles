@@ -10,17 +10,18 @@ entry {
 
 * {
     font: "JetBrains Mono SemiBold 12";
-    foreground: #bbbbbb;
-    background: #191919;
-    primary: #6099c0;
-    urgent: #de6e7c;
+    background: #232136;
+    foreground: #e0def4;
+    primary: #a3be8c;
+    urgent: #eb6f92;
 }
 
 #window {
     width: 480px;
-    padding: 0;
-    border: 0;
+    padding: 8px;
+    border: 2px;
     background-color: @background;
+	border-color: @primary;
 }
 
 #mainbox {
@@ -38,7 +39,7 @@ entry {
     scrollbar: false;
     spacing: 0;
     padding: 0;
-    border: 0px;
+    border: 0;
 }
 
 #element {

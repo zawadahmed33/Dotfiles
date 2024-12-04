@@ -8,3 +8,4 @@ vim.opt.shiftwidth = 4
 
 require("config.lazy")
 
+vim.cmd.colorscheme("duskfox")
