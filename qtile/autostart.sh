@@ -5,4 +5,3 @@ dunst &
 picom &
 numlockx &
 nitrogen --restore &
-conky &

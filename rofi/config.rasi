@@ -10,10 +10,11 @@ entry {
 
 * {
     font: "JetBrains Mono SemiBold 12";
-    background: #232136;
-    foreground: #e0def4;
-    primary: #a3be8c;
-    urgent: #eb6f92;
+    background: #222436;
+    foreground: #c8d3f5;
+    primary: #82aaff;
+	secondary: #c3e88d;
+    urgent: #ff757f;
 }
 
 #window {
@@ -114,7 +115,7 @@ entry {
 }
 
 #prompt {
-    text-color: @primary;
+    text-color: @secondary;
 }
 
 #inputbar {
@@ -124,5 +125,5 @@ entry {
 #textbox-prompt-colon {
     expand: false;
     str: ">";
-    text-color: @primary;
+    text-color: @secondary;
 }

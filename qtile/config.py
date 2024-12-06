@@ -9,8 +9,6 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-from qtile_extras import widget
-from qtile_extras.widget.decorations import RectDecoration
 
 #################
 ### VARIABLES ###
@@ -74,7 +72,7 @@ for vt in range(1, 8):
 ### GROUPS ###
 ##############
 
-groups = [Group(f"{i+1}", label="") for i in range(9)] 
+groups = [Group(f"{i+1}", label="") for i in range(9)] 
 
 for i in groups:
     keys.extend(
@@ -100,15 +98,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#232136",  # Background, 0
-    "#e0def4",  # Foreground, 1
-    "#393552",  # Black, 2
-    "#eb6f92",  # Red, 3
-    "#a3be8c",  # Green, 4
-    "#f6c177",  # Yellow, 5
-    "#569fba",  # Blue, 6
-    "#c4a7e7",  # Magenta, 7
-    "#9ccfd8",  # Cyan, 8
+    "#222436",  # Background, 0
+    "#c8d3f5",  # Foreground, 1
+    "#1b1d2b",  # Black, 2
+    "#ff757f",  # Red, 3
+    "#c3e88d",  # Green, 4
+    "#ffc777",  # Yellow, 5
+    "#82aaff",  # Blue, 6
+    "#c099ff",  # Magenta, 7
+    "#86e1fc",  # Cyan, 8
 ]
 
 ###############
@@ -117,7 +115,7 @@ colors = [
 
 layout_theme = {
     "margin": 8, 
-    "border_focus": colors[4], 
+    "border_focus": colors[6], 
     "border_normal": colors[2]
 }
 
@@ -134,89 +132,103 @@ widget_defaults = dict(
     font="JetBrains Mono SemiBold",
     fontsize=14,
     padding=8,
-    background=colors[0],
 )
 
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
-                widget.Spacer(
-                    length=8
-                ),
+                widget.TextBox(
+                    text = '',
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("rofi -show drun")},
+                    background = colors[6],
+                    foreground = colors[0],
+                 ),
                 widget.GroupBox(
-                    highlight_method="text",
-                    urgent_alert_method="text",
-                    margin_x=0,
-                    margin_y=4,
-                    active=colors[1],
-                    inactive=colors[2],
-                    this_current_screen_border=colors[4],
-                    urgent_text=colors[3],
+                    highlight_method = "text",
+                    urgent_alert_method = "text",
+                    margin_x = 0,
+                    margin_y = 4,
+                    background = colors[2],
+                    active = colors[5],
+                    inactive = colors[1],
+                    this_current_screen_border = colors[4],
+                    urgent_text = colors[3],
                 ),
                 widget.Mpris2(
-                    name="spotify",
-                    objname="org.mpris.MediaPlayer2.spotify",
-                    playing_text=" {track}",
-                    paused_text=" {track}",
-                    foreground=colors[1],
+                    name = "spotify",
+                    objname = "org.mpris.MediaPlayer2.spotify",
+                    playing_text = " {track}",
+                    paused_text = " {track}",
+                    background = colors[2],
+                    foreground = colors[1],
                 ),
                 widget.Spacer(), 
                 widget.Systray(
-                    icon_size=20,
+                    icon_size = 16,
+                    background = colors[2]
                 ),
                 widget.DF(
                     visible_on_warn=False,
                     format=" {uf} {m}",
-                    foreground=colors[7]
+                    background = colors[2],
+                    foreground=colors[7],
                 ),
                 widget.Load(
                     update_interval=15,
                     format=" {load:.2f}",
-                    foreground=colors[8]
+                    background = colors[2],
+                    foreground=colors[8],               
                 ),
                 widget.Memory(
                     update_interval=15,
                     format=" {NotAvailable:.2f} {mm}",
                     measure_mem="G",
-                    foreground=colors[7]
+                    background = colors[2],
+                    foreground=colors[7],
                 ),
                 widget.Net(
-                    update_interval=15,
-                    format=" {down:.0f} {down_suffix}",
-                    foreground=colors[8]
+                    update_interval = 15,
+                    format = " {down:.0f} {down_suffix}",
+                    background = colors[2],
+                    foreground = colors[8],
                 ),
                 widget.Net(
-                    update_interval=15,
-                    format=" {up:.0f} {up_suffix}",
-                    foreground=colors[7]
+                    update_interval = 15,
+                    format = " {up:.0f} {up_suffix}",
+                    background = colors[2],
+                    foreground = colors[7],
                 ),
                 widget.Volume(
-                    unmute_format=" {volume}",
-                    mute_format=" 0",
-                    foreground=colors[8]
+                    unmute_format = " {volume}",
+                    mute_format = " 0",
+                    background = colors[2],
+                    foreground = colors[8],
                 ),
                 widget.Wttr(
-                    format=" %t, %C",
-                    foreground=colors[7]
+                    format = " %t, %C",
+                    background = colors[2],
+                    foreground = colors[7],
                 ),
                 widget.Clock(
-                    format=" %d-%m-%y, %H:%M", 
-                    foreground=colors[8],
-                    
+                    format = " %d-%m-%y, %H:%M", 
+                    background = colors[2],
+                    foreground = colors[8],
                 ),
                 widget.QuickExit(
-                    default_text="",
-                    countdown_format="{}",
-                    foreground=colors[3]
-                ),
-                widget.Spacer(
-                    length=8
+                    default_text = "",
+                    countdown_format = "{}",
+                    background = colors[3],
+                    foreground = colors[0],
                 ),
             ],
-            32,
+            28,
+            margin = [8, 64, 0, 64],
+            background = colors[0],
+            border_width = 4,
+            border_color = colors[0],
         ),
     ),
 ]
