@@ -6,5 +6,8 @@ return {
 		opts = {
 			transparent = true
 		},
+		config = function()
+			vim.cmd.colorscheme("tokyonight-moon")
+		end
 	}
 }
