@@ -129,9 +129,9 @@ layouts = [
 #########################
 
 widget_defaults = dict(
-    font="JetBrains Mono SemiBold",
-    fontsize=14,
-    padding=8,
+    font = "JetBrains Mono SemiBold",
+    fontsize = 14,
+    padding = 8
 )
 
 extension_defaults = widget_defaults.copy()
@@ -165,22 +165,38 @@ screens = [
                     background = colors[2],
                     foreground = colors[1],
                 ),
-                widget.Spacer(), 
                 widget.Systray(
-                    icon_size = 16,
-                    background = colors[2]
+                    icon_size = 20,
+                ),
+                widget.Spacer(), 
+                widget.CheckUpdates(
+                    distro = "Arch_checkupdates",
+                    no_update_string = ' 0 Updates',
+                    display_format = ' {updates} Updates',
+                    background = colors[2],
+                    colour_have_updates = colors[7],
+                    colour_no_updates = colors[7]
                 ),
                 widget.DF(
                     visible_on_warn=False,
                     format=" {uf} {m}",
                     background = colors[2],
-                    foreground=colors[7],
+                    foreground=colors[8],
                 ),
                 widget.Load(
                     update_interval=15,
                     format=" {load:.2f}",
                     background = colors[2],
-                    foreground=colors[8],               
+                    foreground=colors[7],               
+                ),
+                widget.ThermalZone(
+                    zone = '/sys/class/thermal/thermal_zone2/temp',
+                    update_interval=15,
+                    format = " {temp}°C",
+                    background = colors[2],
+                    fgcolor_normal = colors[8],
+                    fgcolor_high = colors[5],
+                    fgcolor_crit = colors[3],
                 ),
                 widget.Memory(
                     update_interval=15,
@@ -208,7 +224,7 @@ screens = [
                     foreground = colors[8],
                 ),
                 widget.Wttr(
-                    format = " %t, %C",
+                    format = " %t, %C",
                     background = colors[2],
                     foreground = colors[7],
                 ),
@@ -225,7 +241,7 @@ screens = [
                 ),
             ],
             28,
-            margin = [8, 64, 0, 64],
+            margin = [8, 8, 0, 8],
             background = colors[0],
             border_width = 4,
             border_color = colors[0],
