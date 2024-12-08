@@ -100,30 +100,30 @@ entry {
 
 #inputbar {
     spacing: 8px;
-    padding: 32px;
+    padding: 48px 16px;
     text-color: @foreground;
-    background-color: @background;
-}
-
-#case-indicator {
-    spacing: 0;
-    text-color: @foreground;
+    background-color: transparent;
+    background-image: url("~/.config/rofi/images/lighthouse.png", width);
+	children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 #entry {
+	enabled: true;
+	expand: false;
+	width: 256px;
+	padding: 12px 24px;
+	border-radius: 64px;
+    background-color: @background;
     text-color: @foreground;
 }
 
 #prompt {
+	padding: 12px 16px;
+	border-radius: 64px;
+    background-color: @background;
     text-color: @secondary;
-}
-
-#inputbar {
-    children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 #textbox-prompt-colon {
-    expand: false;
-    str: ">";
-    text-color: @secondary;
+	enabled: false;
 }
