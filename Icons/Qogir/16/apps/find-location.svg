@@ -1,0 +1,9 @@
+<svg width="16" height="16" version="1.1" viewBox="0 0 4.233 4.233" xmlns="http://www.w3.org/2000/svg">
+ <rect transform="matrix(0,-1,-1,0,0,0)" x="-4.233" y="-4.233" width="4.233" height="4.233" rx="2.1165" ry="2.1165" fill="#e6e6e6" stroke-width="1.2307" paint-order="markers stroke fill"/>
+ <rect transform="matrix(0,-1,-1,0,0,0)" x="-3.9684" y="-3.9684" width="3.7039" height="3.7039" rx="1.8519" ry="1.8519" fill="#ffffff" stroke-width="1.0769" paint-order="markers stroke fill"/>
+ <rect transform="matrix(0,-1,-1,0,0,0)" x="-3.6833" y="-3.6836" width="3.1342" height="3.1342" rx="1.5671" ry="1.5671" fill="#4d8dd8" stroke-width="1.0769"/>
+ <rect transform="matrix(0,-1,-1,0,0,0)" x="-3.2561" y="-3.2561" width="2.2795" height="2.2795" rx="1.1396" ry="1.1396" fill="#ffffff" opacity=".25" stroke-width="1.0769"/>
+ <rect transform="matrix(0,-1,-1,0,0,0)" x="-2.8286" y="-2.8288" width="1.4247" height="1.4247" rx=".71235" ry=".71235" fill="#ffffff" opacity=".25" stroke-width="1.0769"/>
+ <rect transform="matrix(0,-1,-1,0,0,0)" x="-2.33" y="-2.33" width=".42725" height=".42725" rx=".21376" ry=".21376" fill="#ffffff" stroke-width="1.0769"/>
+ <path d="m2.1165 2.0659 1.2088-1.2088 0.050343 0.050343-1.2088 1.2088z" fill="#ffffff" stroke-width="1.0769" paint-order="markers stroke fill"/>
+</svg>

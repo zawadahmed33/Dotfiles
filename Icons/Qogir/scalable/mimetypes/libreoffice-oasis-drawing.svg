@@ -1,0 +1,13 @@
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <rect y="-.0031822" width="16.933" height="16.933" rx="0" ry="0" fill="none" opacity=".75" stroke-width=".26458"/>
+ <path d="m2.381 0.265h12.171v15.345h-12.17v-15.345z" color="#000000" fill="#fc8f36" overflow="visible"/>
+ <path d="m2.249 0.132 12.435 1e-3v15.61h-12.434v-15.61z" fill="none" opacity=".3"/>
+ <path d="m2.249 0.132 12.435 1e-3v15.61h-12.434v-15.61z" fill="none" stroke="#b85700" stroke-linejoin="round" stroke-opacity=".776" stroke-width=".265"/>
+ <path d="m9.282 7.467a2.234 2.234 0 1 1-4.468 0 2.234 2.234 0 1 1 4.468 0z" color="#000000" fill="#f8c4b4" stroke="#ca6749" stroke-width=".13229"/>
+ <path d="m8.474 6.762h3.528v3.528h-3.528z" color="#000000" fill="#deb12b" stroke="#a27d11" stroke-width=".13229"/>
+ <path d="m9.87 11.23h-4.468l2.234-3.586 1.117 1.793z" color="#000000" fill="#fbdd7c" stroke="#d8a501" stroke-width=".14816"/>
+ <path id="y" d="m4.961 10.966h0.647v0.647h-0.647z" color="#000000" fill="#9ef290" opacity=".75" stroke="#18a303" stroke-width=".059"/>
+ <path d="m9.415 10.407h2.705v-3.763h-3.763v2.07z" color="#000000" fill="none"/>
+ <use transform="translate(2.352,-3.763)" width="5033" height="1085" xlink:href="#y"/>
+ <use transform="translate(4.704)" width="5033" height="1085" xlink:href="#y"/>
+</svg>
