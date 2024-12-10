@@ -192,7 +192,7 @@ screens = [
                 widget.ThermalZone(
                     zone = '/sys/class/thermal/thermal_zone2/temp',
                     update_interval=15,
-                    format = " {temp}°C",
+                    format = " {temp}°C",
                     background = colors[2],
                     fgcolor_normal = colors[8],
                     fgcolor_high = colors[5],
@@ -224,7 +224,7 @@ screens = [
                     foreground = colors[8],
                 ),
                 widget.Wttr(
-                    format = " %t, %C",
+                    format = " %t, %C",
                     background = colors[2],
                     foreground = colors[7],
                 ),
@@ -302,7 +302,8 @@ wmname = "LG3D"
 ### STARTUP HOOK ###
 ####################
 
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser("~/.config/qtile/autostart.sh")
-    subprocess.call(home)
+if qtile.core.name == "x11":
+    @hook.subscribe.startup_once
+    def autostart():
+        home = os.path.expanduser("~/.config/qtile/autostart.sh")
+        subprocess.call(home)
