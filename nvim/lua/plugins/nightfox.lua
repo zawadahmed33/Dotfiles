@@ -1,5 +1,0 @@
-return {
-	{
-		"EdenEast/nightfox.nvim",
-	}
-}
