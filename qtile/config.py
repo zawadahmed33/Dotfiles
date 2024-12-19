@@ -162,6 +162,7 @@ screens = [
                     objname = "org.mpris.MediaPlayer2.spotify",
                     playing_text = " {track}",
                     paused_text = " {track}",
+                    max_chars = 32,
                     background = colors[2],
                     foreground = colors[1],
                 ),
