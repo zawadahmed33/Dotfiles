@@ -10,11 +10,11 @@ entry {
 
 * {
     font: "JetBrains Mono SemiBold 12";
-    background: #222436;
-    foreground: #c8d3f5;
-    primary: #82aaff;
-	secondary: #c3e88d;
-    urgent: #ff757f;
+    background: #232136;
+    foreground: #e0def4;
+    primary: #569fba;
+	secondary: #a3be8c;
+    urgent: #eb6f92;
 }
 
 #window {
@@ -103,7 +103,7 @@ entry {
     padding: 48px 16px;
     text-color: @foreground;
     background-color: transparent;
-    background-image: url("~/.config/rofi/images/lighthouse.png", width);
+    background-image: url("~/.config/rofi/images/lighthouse.jpg", width);
 	children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 

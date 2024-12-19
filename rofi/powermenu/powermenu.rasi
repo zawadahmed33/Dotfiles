@@ -1,9 +1,10 @@
 * {
-    font: "Font Awesome 6 Free 64";
-    foreground: #bbbbbb;
-    background: #191919;
-    primary: #6099c0;
-    urgent: #de6e7c;
+    font: "Font Awesome 6 Free 48";
+    foreground: #c8d3f5;
+    background: #222436;
+    primary: #82aaff;
+    secondary: #c3e88d;
+    urgent: #ff757f;
 }
 
 inputbar {
@@ -11,15 +12,16 @@ inputbar {
 }
 
 window {
+	width: 640px;
     padding: 0;
     border: 0;
     background-color: @background;
 }
 
 listview {
-	lines: 2;
-	columns: 2;
-    margin: 32px;
+	lines: 1;
+	columns: 4;
+    margin: 16px;
     border: 0px;
 }
 
