@@ -189,6 +189,7 @@ screens = [
                 ),
                 widget.Spacer(length=8),
                 widget.Mpris2(
+<<<<<<< HEAD
                     name="spotify",
                     objname="org.mpris.MediaPlayer2.spotify",
                     playing_text=" {track}",
@@ -196,6 +197,15 @@ screens = [
                     max_chars=48,
                     foreground=colors[1],
                     **decor,
+=======
+                    name = "spotify",
+                    objname = "org.mpris.MediaPlayer2.spotify",
+                    playing_text = " {track}",
+                    paused_text = " {track}",
+                    max_chars = 32,
+                    background = colors[2],
+                    foreground = colors[1],
+>>>>>>> refs/remotes/origin/main
                 ),
                 widget.Systray(icon_size=20, background=colors[0]),
                 widget.Spacer(),
