@@ -255,8 +255,8 @@ screens = [
                 ),
                 widget.Spacer(length=8),
                 widget.Volume(
-                    unmute_format=" {volume}",
-                    mute_format=" 0",
+                    unmute_format=" {volume}/100",
+                    mute_format=" 0/100",
                     foreground=colors[8],
                     **decor,
                 ),
