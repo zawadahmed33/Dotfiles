@@ -122,15 +122,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#232136",  # Background, 0
-    "#e0def4",  # Foreground, 1
-    "#393552",  # Black, 2
-    "#eb6f92",  # Red, 3
+    "#2a303c",  # Background, 0
+    "#bfc5d0",  # Foreground, 1
+    "#3b4252",  # Black, 2
+    "#d57780",  # Red, 3
     "#a3be8c",  # Green, 4
-    "#f6c177",  # Yellow, 5
-    "#569fba",  # Blue, 6
-    "#c4a7e7",  # Magenta, 7
-    "#9ccfd8",  # Cyan, 8
+    "#ecbe8b",  # Yellow, 5
+    "#81a1c1",  # Blue, 6
+    "#b48ead",  # Magenta, 7
+    "#97b7d7",  # Cyan, 8
 ]
 
 ###############
@@ -189,7 +189,6 @@ screens = [
                 ),
                 widget.Spacer(length=8),
                 widget.Mpris2(
-<<<<<<< HEAD
                     name="spotify",
                     objname="org.mpris.MediaPlayer2.spotify",
                     playing_text=" {track}",
@@ -197,15 +196,6 @@ screens = [
                     max_chars=48,
                     foreground=colors[1],
                     **decor,
-=======
-                    name = "spotify",
-                    objname = "org.mpris.MediaPlayer2.spotify",
-                    playing_text = " {track}",
-                    paused_text = " {track}",
-                    max_chars = 32,
-                    background = colors[2],
-                    foreground = colors[1],
->>>>>>> refs/remotes/origin/main
                 ),
                 widget.Systray(icon_size=20, background=colors[0]),
                 widget.Spacer(),
