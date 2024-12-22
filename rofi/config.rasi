@@ -10,19 +10,19 @@ entry {
 
 * {
     font: "JetBrains Mono SemiBold 12";
-    background: #2a303c;
-    foreground: #b5c5d0;
-    primary: #81a1c1;
-	secondary: #a3be8c;
-    urgent: #d57780;
+    background: #192330;
+    foreground: #c0c8c5;
+    primary: #86abdc;
+	  secondary: #8ebaa4;
+    urgent: #e26886;
 }
 
 #window {
     width: 480px;
-    padding: 8px;
+    padding: 16px;
     border: 2px;
     background-color: @background;
-	border-color: @primary;
+  	border-color: @secondary;
 }
 
 #mainbox {
@@ -53,11 +53,6 @@ entry {
     text-color: @foreground;
 }
 
-#element.normal.urgent {
-    background-color: @background;
-    text-color: @urgent;
-}
-
 #element.normal.active {
     background-color: @background;
     text-color: @primary;
@@ -65,11 +60,6 @@ entry {
 
 #element.selected.normal {
     background-color: @primary;
-    text-color: @background;
-}
-
-#element.selected.urgent {
-    background-color: @urgent;
     text-color: @background;
 }
 
@@ -81,11 +71,6 @@ entry {
 #element.alternate.normal {
     background-color: @background;
     text-color: @foreground;
-}
-
-#element.alternate.urgent {
-    background-color: @background;
-    text-color: @urgent;
 }
 
 #element.alternate.active {

@@ -4,6 +4,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     python = { "black" },
+    json = { "jq" },
   },
 
   format_on_save = {

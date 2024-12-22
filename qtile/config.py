@@ -122,15 +122,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#2a303c",  # Background, 0
-    "#bfc5d0",  # Foreground, 1
-    "#3b4252",  # Black, 2
-    "#d57780",  # Red, 3
-    "#a3be8c",  # Green, 4
-    "#ecbe8b",  # Yellow, 5
-    "#81a1c1",  # Blue, 6
-    "#b48ead",  # Magenta, 7
-    "#97b7d7",  # Cyan, 8
+    "#192330",  # Background, 0
+    "#c0c8c5",  # Foreground, 1
+    "#252f3c",  # Lighter Background, 2
+    "#e26886",  # Red, 3
+    "#8ebaa4",  # Green, 4
+    "#dbc074",  # Yellow, 5
+    "#86abdc",  # Blue, 6
+    "#9d79d6",  # Magenta, 7
+    "#7ad4d6",  # Cyan, 8
 ]
 
 ###############
@@ -157,13 +157,19 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 decor = {
-    "decorations": [RectDecoration(radius=12, filled=True, colour=colors[2])],
+    "decorations": [
+        RectDecoration(
+            radius=12,
+            filled=True,
+            colour=colors[2],
+        )
+    ],
 }
 
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.TextBox(
                     text="",
@@ -255,8 +261,8 @@ screens = [
                 ),
                 widget.Spacer(length=8),
                 widget.Volume(
-                    unmute_format=" {volume}/100",
-                    mute_format=" 0/100",
+                    unmute_format=" {volume}",
+                    mute_format=" 0",
                     foreground=colors[8],
                     **decor,
                 ),
