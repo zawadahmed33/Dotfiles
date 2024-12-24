@@ -5,6 +5,7 @@ local options = {
     html = { "prettier" },
     python = { "black" },
     json = { "jq" },
+    bash = { "beautysh" },
   },
 
   format_on_save = {

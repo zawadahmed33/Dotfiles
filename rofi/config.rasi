@@ -10,11 +10,11 @@ entry {
 
 * {
     font: "JetBrains Mono SemiBold 12";
-    background: #192330;
-    foreground: #c0c8c5;
-    primary: #86abdc;
-	  secondary: #8ebaa4;
-    urgent: #e26886;
+    background: #1e222a;
+    foreground: #abb2bf;
+    primary: #61afef;
+	  secondary: #98c379;
+    urgent: #e06c75;
 }
 
 #window {
