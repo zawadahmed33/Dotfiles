@@ -1,6 +1,6 @@
 #! /bin/sh
 
-chosen=$(printf "\n\n\n" | rofi -dmenu -i -theme-str '@import "powermenu.rasi"')
+chosen=$(printf "\n\n\n" | rofi -dmenu -i -theme-str '@import "~/.config/rofi/powermenu/powermenu.rasi"')
 
 urgent=""
 

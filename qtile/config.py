@@ -272,8 +272,8 @@ screens = [
                 ),
                 widget.Spacer(length=8),
                 widget.Volume(
-                    unmute_format=" {volume}",
-                    mute_format=" 0",
+                    unmute_format=" {volume}/100",
+                    mute_format=" 0/100",
                     foreground=colors[8],
                     **decor,
                 ),
@@ -347,7 +347,9 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),
         Match(title="pinentry"),
     ],
-    border_width=0,
+    border_width=2,
+    border_focus=colors[4],
+    border_normal=colors[2],
 )
 
 auto_fullscreen = True

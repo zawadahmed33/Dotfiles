@@ -1,8 +1,8 @@
 [global]
     monitor = 0
     follow = none
-    origin = top-right
-    offset = 16x16
+    origin = top-left
+    offset = 32x32
     scale = 0
     notification_limit = 20
     progress_bar = true
