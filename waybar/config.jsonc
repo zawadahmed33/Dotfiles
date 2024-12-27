@@ -1,0 +1,87 @@
+{
+  "position": "bottom",
+  "height": 48,
+  "spacing": 8,
+  "modules-left": [
+    "custom/rofi",
+    "hyprland/workspaces",
+    "mpris",
+    "tray"
+  ],
+  "modules-right": [
+    "disk",
+    "cpu",
+    "temperature",
+    "memory",
+    "network",
+    "pulseaudio",
+    "custom/wttr",
+    "clock",
+    "custom/logout"
+  ],
+  "custom/rofi": {
+    "format": "",
+    "on-click": "rofi -show drun"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "visible": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 9
+    }
+  },
+  "mpris": {
+    "format": " {title}",
+    "format-paused": " {title}",
+    "max-length": 32
+  },
+  "tray": {
+    "icon-size": 24,
+    "spacing": 8
+  },
+  "disk": {
+    "format": " {free}"
+  },
+  "cpu": {
+    "format": " {load}",
+    "tooltip": false
+  },
+  "temperature": {
+    "thermal-zone": 2,
+    "critical-threshold": 60,
+    "format": " {temperatureC}°C",
+    "format-critical": " {temperatureC}°C"
+  },
+  "memory": {
+    "format": " {used:0.1f}GiB"
+  },
+  "network": {
+    "format-wifi": " {bandwidthDownBits}",
+    "tooltip-format": "{essid}",
+    "format-disconnected": " Disconnected"
+  },
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": " {volume}/100",
+    "format-muted": " 0/100",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "custom/wttr": {
+    "format": " {}",
+    "interval": 300,
+    "exec": "curl wttr.in/Dhaka?format=%C+%t"
+  },
+  "clock": {
+    "format": " {:%d-%m-%y, %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "custom/logout": {
+    "format": "",
+    "on-click-right": "hyprctl dispatch exit"
+  }
+}

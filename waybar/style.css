@@ -1,0 +1,83 @@
+@define-color background #1e222a;
+@define-color foreground #abb2bf;
+@define-color lighter-background #565c64;
+@define-color red #e06c75;
+@define-color green #98c379;
+@define-color yellow #e5c07b;
+@define-color blue #61afef;
+@define-color magenta #c678dd;
+@define-color cyan #56b6c2;
+
+* {
+  font-family: "JetBrains Mono SemiBold", "Font Awesome 6 Free Solid";
+  font-size: 10pt;
+}
+
+window#waybar {
+  background-color: @background;
+  color: @foreground;
+}
+
+#custom-rofi,
+#workspaces,
+#mpris,
+#disk,
+#cpu,
+#temperature,
+#memory,
+#network,
+#pulseaudio,
+#custom-wttr,
+#clock,
+#custom-logout {
+  margin: 8px 0px 8px 0px;
+  padding: 0px 12px 0px 12px;
+  border: 2px solid @lighter-background;
+  border-radius: 16px;
+}
+
+#custom-rofi {
+  margin-left: 8px;
+  color: @blue;
+  border-color: @blue;
+}
+
+#workspaces button {
+  padding: 0px;
+  border: none;
+  background: none;
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+#workspaces button.visible {
+  color: @green;
+}
+
+#workspaces button.empty {
+  color: @lighter-background;
+}
+
+#disk,
+#temperature,
+#network,
+#custom-wttr {
+  color: @magenta;
+}
+
+#cpu,
+#memory,
+#pulseaudio,
+#clock {
+  color: @cyan;
+}
+
+#custom-logout {
+  margin-right: 8px;
+  color: @red;
+  border-color: @red;
+}

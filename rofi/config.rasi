@@ -62,7 +62,7 @@ textbox-prompt-colon {
 
 listview {
   lines: 8;
-  fixed-height: false;
+  fixed-height: true;
   scrollbar: false;
   spacing: 0;
   padding: 0;
