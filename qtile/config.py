@@ -95,7 +95,7 @@ for vt in range(1, 8):
 ### GROUPS ###
 ##############
 
-groups = [Group(f"{i+1}", label="") for i in range(9)]
+groups = [Group(i) for i in "123456789"]
 
 for i in groups:
     keys.extend(
@@ -123,7 +123,7 @@ for i in groups:
 colors = [
     "#1e222a",  # Background, 0
     "#abb2bf",  # Foreground, 1
-    "#353b45",  # Lighter Background, 2
+    "#565c64",  # Lighter Background, 2
     "#e06c75",  # Red, 3
     "#98c379",  # Green, 4
     "#e5c07b",  # Yellow, 5
@@ -136,7 +136,12 @@ colors = [
 ### LAYOUTS ###
 ###############
 
-layout_theme = {"margin": 8, "border_focus": colors[6], "border_normal": colors[2]}
+layout_theme = {
+    "margin": 8,
+    "border_width": 2,
+    "border_focus": colors[6],
+    "border_normal": colors[2],
+}
 
 layouts = [
     layout.MonadTall(**layout_theme),
@@ -148,117 +153,77 @@ layouts = [
 #########################
 
 widget_defaults = dict(
-    font="JetBrains Mono Bold", fontsize=14, padding=4, foreground=colors[1]
+    font="JetBrains Mono SemiBold", fontsize=14, padding=8, foreground=colors[1]
 )
 
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
-                widget.Spacer(length=16),
                 widget.TextBox(
-                    text="",
+                    text="$ Find",
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn("rofi -show drun")
                     },
+                    padding=16,
                     foreground=colors[6],
                 ),
-                widget.Spacer(length=4),
                 widget.GroupBox(
                     highlight_method="text",
                     urgent_alert_method="text",
                     padding=0,
-                    spacing=4,
-                    margin_x=4,
+                    margin_x=8,
+                    margin_y=4,
                     active=colors[5],
                     inactive=colors[1],
                     this_current_screen_border=colors[4],
                     urgent_text=colors[3],
                 ),
-                widget.Spacer(length=4),
                 widget.Mpris2(
                     name="spotify",
                     objname=None,
                     format="{xesam:title}",
-                    playing_text=" {track}",
-                    paused_text=" {track}",
-                    max_chars=48,
+                    playing_text="{track}",
+                    paused_text="|> {track}",
+                    max_chars=40,
                 ),
                 widget.Systray(icon_size=16),
                 widget.Spacer(),
-                widget.TextBox(text="", foreground=colors[7]),
-                widget.GenPollText(
-                    func=lambda: subprocess.check_output(
-                        "printf $(uname -r)", shell=True, text=True
-                    ),
-                ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[8]),
-                widget.CheckUpdates(
-                    distro="Arch_checkupdates",
-                    no_update_string="0 Updates",
-                    display_format="{updates} Updates",
-                    colour_have_updates=colors[1],
-                    colour_no_updates=colors[1],
-                ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[7]),
-                widget.DF(
-                    visible_on_warn=False,
-                    format="{uf} GiB",
-                ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[8]),
-                widget.Load(
-                    format="{load:.2f}",
-                ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[7]),
+                widget.Load(format="load {load:.2f}"),
+                widget.Sep(size_percent=50, padding=0),
                 widget.ThermalZone(
                     zone="/sys/class/thermal/thermal_zone2/temp",
-                    format="{temp}°C",
+                    format="temp. {temp}°C",
                     fgcolor_normal=colors[1],
                     fgcolor_high=colors[5],
                     fgcolor_crit=colors[3],
                 ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[8]),
+                widget.Sep(size_percent=50, padding=0),
                 widget.Memory(
-                    format="{NotAvailable:.2f} GiB",
+                    format="ram {NotAvailable:.2f} GiB",
                     measure_mem="G",
                 ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[7]),
-                widget.Wlan(format="{essid}"),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[8]),
+                widget.Sep(size_percent=50, padding=0),
+                widget.Wlan(format="net. {essid}"),
+                widget.Sep(size_percent=50, padding=0),
                 widget.Volume(
-                    unmute_format="{volume}/100",
-                    mute_format="0/100",
+                    unmute_format="vol. {volume}/100",
+                    mute_format="vol. 0/100",
                 ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[7]),
-                widget.Wttr(
-                    format="%t, %C",
-                ),
-                widget.Spacer(length=4),
-                widget.TextBox(text="", foreground=colors[8]),
-                widget.Clock(
-                    format="%d/%m/%y, %H:%M",
-                ),
-                widget.Spacer(length=4),
+                widget.Sep(size_percent=50, padding=0),
+                widget.Clock(format="%d-%m-%y, %H:%M"),
                 widget.QuickExit(
-                    default_text="",
-                    countdown_format="{}",
+                    default_text="$ Exit",
+                    countdown_format="[{}sec]",
+                    padding=16,
                     foreground=colors[3],
                 ),
-                widget.Spacer(length=16),
             ],
-            36,
-            margin=[8, 8, 0, 8],
+            32,
             background=colors[0],
+            margin=[0, 128, 0, 128],
         ),
     ),
 ]
