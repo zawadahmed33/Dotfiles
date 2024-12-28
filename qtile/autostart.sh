@@ -1,10 +1,6 @@
 #!/bin/sh
 
-lxsession &
-dunst &
 picom &
+dunst &
 numlockx &
-xset s 300
-xss-lock i3lock &
-nitrogen --restore &
-conky --config=/home/zawad/.config/conky/clock.conf -d
+nitrogen --restore

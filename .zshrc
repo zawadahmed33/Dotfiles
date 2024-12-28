@@ -1,5 +1,5 @@
 # Prompt customization
-PROMPT='%F{blue}[%~]%f %F{green}=>%f '
+PROMPT='%F{blue}[%~]%f %F{green}->%f '
 
 # Load colors
 autoload -U colors && colors
