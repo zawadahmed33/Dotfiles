@@ -137,7 +137,7 @@ colors = [
 ###############
 
 layout_theme = {
-    "margin": 8,
+    "margin": 4,
     "border_width": 2,
     "border_focus": colors[6],
     "border_normal": colors[2],
@@ -160,7 +160,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.TextBox(
                     text="$ Find",
@@ -191,29 +191,26 @@ screens = [
                 ),
                 widget.Systray(icon_size=16),
                 widget.Spacer(),
-                widget.Load(format="load {load:.2f}"),
-                widget.Sep(size_percent=50, padding=0),
+                widget.Load(format="load {load:.2f}", foreground=colors[7]),
                 widget.ThermalZone(
                     zone="/sys/class/thermal/thermal_zone2/temp",
                     format="temp. {temp}°C",
-                    fgcolor_normal=colors[1],
+                    fgcolor_normal=colors[8],
                     fgcolor_high=colors[5],
                     fgcolor_crit=colors[3],
                 ),
-                widget.Sep(size_percent=50, padding=0),
                 widget.Memory(
-                    format="ram {NotAvailable:.2f} GiB",
+                    format="mem. {NotAvailable:.2f} GiB",
                     measure_mem="G",
+                    foreground=colors[7],
                 ),
-                widget.Sep(size_percent=50, padding=0),
-                widget.Wlan(format="net. {essid}"),
-                widget.Sep(size_percent=50, padding=0),
+                widget.Wlan(format="net. {essid}", foreground=colors[8]),
                 widget.Volume(
                     unmute_format="vol. {volume}/100",
                     mute_format="vol. 0/100",
+                    foreground=colors[7],
                 ),
-                widget.Sep(size_percent=50, padding=0),
-                widget.Clock(format="%d-%m-%y, %H:%M"),
+                widget.Clock(format="%a,%d %b,%H:%M:%S", foreground=colors[8]),
                 widget.QuickExit(
                     default_text="$ Exit",
                     countdown_format="[{}sec]",
@@ -221,9 +218,9 @@ screens = [
                     foreground=colors[3],
                 ),
             ],
-            32,
+            36,
             background=colors[0],
-            margin=[0, 128, 0, 128],
+            margin=[4, 128, 0, 128],
         ),
     ),
 ]
