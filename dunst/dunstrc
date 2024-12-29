@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = none
-    origin = top-left
+    origin = bottom-right
     offset = 32x32
     scale = 0
     notification_limit = 20
@@ -20,7 +20,7 @@
     padding = 16
     horizontal_padding = 8
     text_icon_padding = 0
-    frame_width = 2
+    frame_width = 1
     frame_color = <D-v>"#61afef"
     gap_size = 0
     separator_color = frame

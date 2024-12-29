@@ -16,7 +16,7 @@ configuration {
 window {
   width: 480px;
   padding: 16px;
-  border: 2px;
+  border: 1px;
   background-color: @background;
   border-color: @secondary;
 }

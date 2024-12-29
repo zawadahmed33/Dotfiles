@@ -138,7 +138,7 @@ colors = [
 
 layout_theme = {
     "margin": 4,
-    "border_width": 2,
+    "border_width": 1,
     "border_focus": colors[6],
     "border_normal": colors[2],
 }
@@ -181,14 +181,6 @@ screens = [
                     this_current_screen_border=colors[4],
                     urgent_text=colors[3],
                 ),
-                widget.Mpris2(
-                    name="spotify",
-                    objname=None,
-                    format="{xesam:title}",
-                    playing_text="{track}",
-                    paused_text="|> {track}",
-                    max_chars=40,
-                ),
                 widget.Systray(icon_size=16),
                 widget.Spacer(),
                 widget.Load(format="load {load:.2f}", foreground=colors[7]),
@@ -200,7 +192,7 @@ screens = [
                     fgcolor_crit=colors[3],
                 ),
                 widget.Memory(
-                    format="mem. {NotAvailable:.2f} GiB",
+                    format="ram {NotAvailable:.2f} GiB",
                     measure_mem="G",
                     foreground=colors[7],
                 ),
@@ -220,7 +212,7 @@ screens = [
             ],
             36,
             background=colors[0],
-            margin=[4, 128, 0, 128],
+            margin=[4, 256, 0, 256],
         ),
     ),
 ]
