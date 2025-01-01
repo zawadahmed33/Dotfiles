@@ -2,5 +2,5 @@
 
 picom &
 dunst &
+~/.fehbg &
 numlockx &
-nitrogen --restore
