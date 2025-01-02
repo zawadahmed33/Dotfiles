@@ -182,20 +182,25 @@ screens = [
                 ),
                 widget.Systray(icon_size=16),
                 widget.Spacer(),
-                widget.Load(format="load {load:.2f}", foreground=colors[7]),
-                widget.ThermalZone(
-                    zone="/sys/class/thermal/thermal_zone2/temp",
-                    format="temp. {temp}°C",
-                    fgcolor_normal=colors[8],
-                    fgcolor_high=colors[5],
-                    fgcolor_crit=colors[3],
+                # widget.Load(format="load {load:.2f}", foreground=colors[7]),
+                # widget.ThermalZone(
+                #     zone="/sys/class/thermal/thermal_zone2/temp",
+                #     format="temp. {temp}°C",
+                #     fgcolor_normal=colors[8],
+                #     fgcolor_high=colors[5],
+                #     fgcolor_crit=colors[3],
+                # ),
+                # widget.Memory(
+                #     format="ram {NotAvailable:.2f} GiB",
+                #     measure_mem="G",
+                #     foreground=colors[7],
+                # ),
+                widget.CPU(format="cpu {load_percent:.2f}/100", foreground=colors[7]),
+                widget.Wlan(
+                    format="connected: {essid}",
+                    disconnected_message="no internet",
+                    foreground=colors[8],
                 ),
-                widget.Memory(
-                    format="ram {NotAvailable:.2f} GiB",
-                    measure_mem="G",
-                    foreground=colors[7],
-                ),
-                widget.Wlan(format="net. {essid}", foreground=colors[8]),
                 widget.Volume(
                     unmute_format="vol. {volume}/100",
                     mute_format="vol. 0/100",
@@ -250,7 +255,7 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),
         Match(title="pinentry"),
     ],
-    border_width=2,
+    border_width=1,
     border_focus=colors[4],
     border_normal=colors[2],
 )
