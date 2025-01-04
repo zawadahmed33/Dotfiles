@@ -195,17 +195,18 @@ screens = [
                 #     measure_mem="G",
                 #     foreground=colors[7],
                 # ),
-                widget.CPU(format="cpu {load_percent:.2f}/100", foreground=colors[7]),
+                # widget.CPU(format="cpu {load_percent}/100", foreground=colors[7]),
                 widget.Wlan(
                     format="connected: {essid}",
                     disconnected_message="no internet",
-                    foreground=colors[8],
+                    foreground=colors[7],
                 ),
                 widget.Volume(
                     unmute_format="vol. {volume}/100",
                     mute_format="vol. 0/100",
-                    foreground=colors[7],
+                    foreground=colors[8],
                 ),
+                widget.Wttr(format="%C, %t", foreground=colors[7]),
                 widget.Clock(format="%a,%d %b,%H:%M:%S", foreground=colors[8]),
                 widget.QuickExit(
                     default_text="$ Exit",
