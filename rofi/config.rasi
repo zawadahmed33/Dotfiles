@@ -74,37 +74,12 @@ element {
   border: 0;
 }
 
-element.normal.normal {
-  background-color: @background;
-  text-color: @foreground;
-}
-
-element.normal.active {
-  background-color: @background;
-  text-color: @primary;
-}
-
 element.selected.normal {
   background-color: @primary;
   text-color: @background;
 }
 
-element.selected.active {
-  background-color: @background;
-  text-color: @foreground;
-}
-
 element.alternate.normal {
   background-color: @background;
   text-color: @foreground;
-}
-
-element.alternate.active {
-  background-color: @background;
-  text-color: @foreground;
-}
-
-button.selected {
-  background-color: @primary;
-  text-color: @background;
 }
