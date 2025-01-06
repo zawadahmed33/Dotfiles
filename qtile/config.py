@@ -136,7 +136,7 @@ colors = [
 ###############
 
 layout_theme = {
-    "margin": 4,
+    "margin": 8,
     "border_width": 1,
     "border_focus": colors[6],
     "border_normal": colors[2],
@@ -182,20 +182,6 @@ screens = [
                 ),
                 widget.Systray(icon_size=16),
                 widget.Spacer(),
-                # widget.Load(format="load {load:.2f}", foreground=colors[7]),
-                # widget.ThermalZone(
-                #     zone="/sys/class/thermal/thermal_zone2/temp",
-                #     format="temp. {temp}°C",
-                #     fgcolor_normal=colors[8],
-                #     fgcolor_high=colors[5],
-                #     fgcolor_crit=colors[3],
-                # ),
-                # widget.Memory(
-                #     format="ram {NotAvailable:.2f} GiB",
-                #     measure_mem="G",
-                #     foreground=colors[7],
-                # ),
-                # widget.CPU(format="cpu {load_percent}/100", foreground=colors[7]),
                 widget.Wlan(
                     format="connected: {essid}",
                     disconnected_message="no internet",
@@ -210,14 +196,14 @@ screens = [
                 widget.Clock(format="%a,%d %b,%H:%M:%S", foreground=colors[8]),
                 widget.QuickExit(
                     default_text="$ Exit",
-                    countdown_format="[{}sec]",
+                    countdown_format="{} sec",
                     padding=16,
                     foreground=colors[3],
                 ),
             ],
             36,
             background=colors[0],
-            margin=[4, 256, 0, 256],
+            margin=[8, 256, 0, 256],
         ),
     ),
 ]
