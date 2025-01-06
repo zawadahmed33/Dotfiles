@@ -6,6 +6,7 @@ local options = {
     python = { "black" },
     json = { "jq" },
     bash = { "beautysh" },
+    rust = { "rustfmt" },
   },
 
   format_on_save = {
