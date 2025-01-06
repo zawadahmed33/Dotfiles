@@ -1,1 +1,1 @@
-![alt text](https://github.com/zawadahmed33/Dotfiles/screenshot.png?raw=true)
+![alt text](https://github.com/zawadahmed33/Dotfiles/blob/main/screenshot.png?raw=true)
