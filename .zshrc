@@ -17,7 +17,7 @@ compinit
 _comp_options+=(globdots)
 
 # Aliases
-alias ls="ls --color"
+alias ls="ls -la --color"
 
 # Load zsh-autosuggestions
 source /usr/share/zsh/plugins//zsh-autosuggestions/zsh-autosuggestions.zsh
