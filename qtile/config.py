@@ -162,7 +162,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.TextBox(
-                    text="$ Find",
+                    text="=> Find",
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn("rofi -show drun")
                     },
@@ -190,10 +190,10 @@ screens = [
                     unmute_format=">>> vol. {volume}/100",
                     mute_format=">>> vol. 0/100",
                 ),
-                widget.Wttr(format=">>> %C, %t"),
+                widget.Wttr(format=">>> %C,%t"),
                 widget.Clock(format=">>> %a,%d %b,%H:%M:%S"),
                 widget.QuickExit(
-                    default_text="$ Exit",
+                    default_text="=> Exit",
                     countdown_format="{} sec",
                     padding=16,
                     foreground=colors[3],
