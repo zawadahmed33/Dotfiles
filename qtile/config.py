@@ -1,4 +1,4 @@
-#########################
+########################
 ### IMPORT STATEMENTS ###
 #########################
 
@@ -161,12 +161,12 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Spacer(length=16),
                 widget.TextBox(
-                    text="=> Find",
+                    text="->> Find",
                     mouse_callbacks={
                         "Button1": lambda: qtile.cmd_spawn("rofi -show drun")
                     },
-                    padding=16,
                     foreground=colors[6],
                 ),
                 widget.GroupBox(
@@ -183,25 +183,25 @@ screens = [
                 widget.Systray(),
                 widget.Spacer(),
                 widget.Wlan(
-                    format=">>> connected: {essid}",
-                    disconnected_message="no internet",
+                    format="-> net. {essid}",
+                    disconnected_message=">>> no internet",
                 ),
                 widget.Volume(
-                    unmute_format=">>> vol. {volume}/100",
-                    mute_format=">>> vol. 0/100",
+                    unmute_format="-> vol. {volume}/100",
+                    mute_format="-> vol. 0/100",
                 ),
-                widget.Wttr(format=">>> %C,%t"),
-                widget.Clock(format=">>> %a,%d %b,%H:%M:%S"),
+                widget.Wttr(format="-> %C, %t"),
+                widget.Clock(format="-> %d/%m/%y, %H:%M"),
                 widget.QuickExit(
-                    default_text="=> Exit",
-                    countdown_format="{} sec",
-                    padding=16,
+                    default_text="->> Exit",
+                    countdown_format="->>  {} ",
                     foreground=colors[3],
                 ),
+                widget.Spacer(length=16),
             ],
             36,
-            background=colors[0],
             margin=[8, 256, 0, 256],
+            background=colors[0],
         ),
     ),
 ]
