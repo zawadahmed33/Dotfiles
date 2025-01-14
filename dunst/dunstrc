@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = none
-    origin = bottom-right
+    origin = top-right
     offset = 32x32
     scale = 0
     notification_limit = 20
@@ -21,7 +21,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 1
-    frame_color = <D-v>"#61afef"
+    frame_color = <D-v>"#67b0e8"
     gap_size = 0
     separator_color = frame
     sort = yes
@@ -62,22 +62,22 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#1e222a"
-    foreground = "#abb2bf"
-    frame_color = "#98c379"
+    background = "#141b1e"
+    foreground = "#dadada"
+    frame_color = "#8ccf7e"
     timeout = 10
 
 [urgency_normal]
-    background = "#1e222a"
-    foreground = "#abb2bf"
-    frame_color = "#61afef"
+    background = "#141b1e"
+    foreground = "#dadada"
+    frame_color = "#67b0e8"
     timeout = 10
     override_pause_level = 30
 
 [urgency_critical]
-    background = "#1e222a"
-    foreground = "#abb2bf"
-    frame_color = "#e06c75"
+    background = "#141b1e"
+    foreground = "#dadada"
+    frame_color = "#e57474"
     timeout = 0
     override_pause_level = 60
 

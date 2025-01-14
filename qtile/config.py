@@ -120,15 +120,15 @@ for i in groups:
 ##############
 
 colors = [
-    "#1e222a",  # Background, 0
-    "#abb2bf",  # Foreground, 1
-    "#565c64",  # Lighter Background, 2
-    "#e06c75",  # Red, 3
-    "#98c379",  # Green, 4
-    "#e5c07b",  # Yellow, 5
-    "#61afef",  # Blue, 6
-    "#c678dd",  # Magenta, 7
-    "#56b6c2",  # Cyan, 8
+    "#141b1e",  # Background, 0
+    "#dadada",  # Foreground, 1
+    "#1e2528",  # Lighter Background, 2
+    "#e57474",  # Red, 3
+    "#8ccf7e",  # Green, 4
+    "#e5c76b",  # Yellow, 5
+    "#67b0e8",  # Blue, 6
+    "#c47fd5",  # Magenta, 7
+    "#6cbfbf",  # Cyan, 8
 ]
 
 ###############
@@ -185,13 +185,15 @@ screens = [
                 widget.Wlan(
                     format="-> net. {essid}",
                     disconnected_message=">>> no internet",
+                    foreground=colors[7],
                 ),
                 widget.Volume(
                     unmute_format="-> vol. {volume}/100",
                     mute_format="-> vol. 0/100",
+                    foreground=colors[8],
                 ),
-                widget.Wttr(format="-> %C, %t"),
-                widget.Clock(format="-> %d/%m/%y, %H:%M"),
+                widget.Wttr(format="-> %C, %t", foreground=colors[7]),
+                widget.Clock(format="-> %d/%m/%y, %H:%M", foreground=colors[8]),
                 widget.QuickExit(
                     default_text="->> Exit",
                     countdown_format="->>  {} ",

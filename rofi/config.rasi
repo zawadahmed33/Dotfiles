@@ -6,11 +6,11 @@ configuration {
 
 * {
   font: "JetBrains Mono SemiBold 12";
-  background: #1e222a;
-  foreground: #abb2bf;
-  primary: #61afef;
-  secondary: #98c379;
-  urgent: #e06c75;
+  background: #141b1e;
+  foreground: #dadada;
+  primary: #67b0e8;
+  secondary: #8ccf7e;
+  urgent: #e57474;
 }
 
 window {
