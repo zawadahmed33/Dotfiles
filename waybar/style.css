@@ -20,24 +20,23 @@ window#waybar {
 
 #custom-rofi,
 #workspaces,
-#mpris,
 #network,
 #pulseaudio,
 #custom-wttr,
 #clock,
 #custom-logout {
+  margin: 8px 4px 8px 4px;
+  padding: 0px 8px 0px 8px;
   color: @foreground;
 }
 
 #custom-rofi {
-  margin-left: 16px;
-  margin-right: 16px;
-  color: @blue;
-  border-color: @blue;
+  margin: 8px 4px 8px 8px;
+  background: @blue;
+  color: @background;
 }
 
 #workspaces button {
-  padding: 8px;
   border: none;
   background: none;
   color: @foreground;
@@ -56,9 +55,20 @@ window#waybar {
   color: @lighter-background;
 }
 
+#network,
+#custom-wttr {
+  background: @magenta;
+  color: @background;
+}
+
+#pulseaudio,
+#clock {
+  background: @cyan;
+  color: @background;
+}
+
 #custom-logout {
-  margin-left: 16px;
-  margin-right: 16px;
-  color: @red;
-  border-color: @red;
+  margin: 8px 8px 8px 4px;
+  background: @red;
+  color: @background;
 }

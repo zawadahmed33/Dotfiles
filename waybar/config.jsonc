@@ -1,16 +1,15 @@
 {
   "position": "top",
   "layer": "top",
-  "height": 36,
+  "height": 44,
   "margin-top": 8,
   "margin-left": 256,
   "margin-bottom": 0,
   "margin-right": 256,
-  "spacing": 12,
+  "spacing": 0,
   "modules-left": [
     "custom/rofi",
     "niri/workspaces",
-    "mpris",
     "tray"
   ],
   "modules-right": [
@@ -24,10 +23,12 @@
     "format": "->> Find",
     "on-click": "fuzzel"
   },
-  "mpris": {
-    "format": " {title}",
-    "format-paused": " {title}",
-    "max-length": 32
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+		  "default": ""
+    }
   },
   "tray": {
     "icon-size": 16,
