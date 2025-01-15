@@ -1,8 +1,10 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "kitty-direct",
-    "source": "~/.config/fastfetch/eos-icon.png"
+    "source": "~/.config/fastfetch/eosmall.txt",
+    "padding": {
+      "top": 2
+    }
   },
   "general": {
     "multithreading": true
@@ -56,19 +58,9 @@
       "type": "terminal"
     },
     {
-      "key": " Font",
-      "keyColor": "cyan",
-      "type": "terminalfont"
-    },
-    {
       "key": " Window Manager",
-      "keyColor": "magenta",
-      "type": "wm"
-    },
-    {
-      "key": " GTK Theme",
       "keyColor": "cyan",
-      "type": "theme"
+      "type": "wm"
     },
     "separator",
     {
