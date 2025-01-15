@@ -184,7 +184,7 @@ screens = [
                 widget.Spacer(),
                 widget.Wlan(
                     format="-> net. {essid}",
-                    disconnected_message=">>> no internet",
+                    disconnected_message="-> no internet",
                     foreground=colors[7],
                 ),
                 widget.Volume(
