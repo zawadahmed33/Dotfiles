@@ -1,6 +1,6 @@
 @define-color background #141b1e;
 @define-color foreground #dadada;
-@define-color lighter-background #1e2528;
+@define-color dark-foreground #3c4346;
 @define-color red #e57474;
 @define-color green #8ccf7e;
 @define-color yellow #e5c76b;
@@ -52,7 +52,7 @@ window#waybar {
 }
 
 #workspaces button.default {
-  color: @lighter-background;
+  color: @dark-foreground;
 }
 
 #network,
