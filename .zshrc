@@ -1,5 +1,5 @@
 # Prompt customization
-PROMPT='%F{blue}[%~]%f %F{green}->%f '
+PROMPT='%B%F{blue}[%~]%f %F{green}->>%f %b'
 
 # Load colors
 autoload -U colors && colors
@@ -17,18 +17,31 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Auto complete
+# Auto completions
 autoload -U compinit
 zstyle ':completion:*' menu select
-zmodload zsh/complist
 compinit
-_comp_options+=(globdots)
+
+# Prompt themes
+autoload -Uz promptinit
+promptinit
 
 # Aliases
-alias ls="ls -la --color"
+alias ls="ls --color"
 
-# Load zsh-autosuggestions
-source /usr/share/zsh/plugins//zsh-autosuggestions/zsh-autosuggestions.zsh
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-# Load zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
