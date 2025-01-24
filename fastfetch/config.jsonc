@@ -10,7 +10,7 @@
     "multithreading": true
   },
   "display": {
-    "separator": " ➜ "
+    "separator": "  *  "
   },
   "modules": [
     {
@@ -23,42 +23,42 @@
     },
     "separator",
     {
-      "key": " OS",
+      "key": "",
       "keyColor": "magenta",
       "type": "os"
     },
     {
-      "key": " Machine",
+      "key": "",
       "keyColor": "cyan",
       "type": "host"
     },
     {
-      "key": " Kernel",
+      "key": "",
       "keyColor": "magenta",
       "type": "kernel"
     },
     {
-      "key": " Packages",
+      "key": "",
       "keyColor": "cyan",
       "type": "packages"
     },
     {
-      "key": " Uptime",
+      "key": "",
       "keyColor": "magenta",
       "type": "uptime"
     },
     {
-      "key": " Shell",
+      "key": "",
       "keyColor": "cyan",
       "type": "shell"
     },
     {
-      "key": " Terminal",
+      "key": "",
       "keyColor": "magenta",
       "type": "terminal"
     },
     {
-      "key": " Window Manager",
+      "key": "",
       "keyColor": "cyan",
       "type": "wm"
     },
