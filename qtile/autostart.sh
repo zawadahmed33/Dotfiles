@@ -3,4 +3,5 @@
 picom &
 dunst &
 ~/.fehbg &
+conky &
 numlockx &
