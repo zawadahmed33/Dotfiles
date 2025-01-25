@@ -1,5 +1,5 @@
 # Prompt customization
-PROMPT='%B%F{blue}[%~]%f %F{green}->>%f %b'
+PROMPT="%B%F{blue}(%~)%f%b"$'\n'"%B%(?.%F{green}.%F{red})->>%f%b "
 
 # Load colors
 autoload -U colors && colors
@@ -45,3 +45,5 @@ autoload -Uz _zinit
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
+
+export PATH=$PATH:/home/zawad/.spicetify
